@@ -1,7 +1,21 @@
+/* eslint-disable max-len */
+/* eslint-disable react/jsx-indent-props */
+/* eslint-disable react/jsx-closing-bracket-location */
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/jsx-indent */
 import React from 'react';
 
 function Left() {
-    return <div>Left</div>;
+    return (
+        <div className="px-4">
+            <span
+                className="hover-stroke text-4xl w-full font-bold"
+                data-text="Food is not just fuel, it's information. It talks to your DNA and tells it what to do, how to behave, and whether to express or suppress certain genes. So, eat the best and make your body sing with joy!">
+                Food is not just fuel, it's information. It talks to your DNA and tells it what to do, how to behave, and whether to express or suppress certain genes. So, eat the best and make your
+                body sing with joy!
+            </span>
+        </div>
+    );
 }
 
 export default Left;
