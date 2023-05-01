@@ -43,17 +43,3 @@
 .default {
     @apply font-medium tracking-wide text-red-600 transition-colors duration-200 hover:text-blue-400;
 }
-.welcome-text {
-    animation: slideIn 1s ease forwards;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
