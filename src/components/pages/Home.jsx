@@ -1,7 +1,13 @@
+/* eslint-disable react/jsx-indent */
 import React from 'react';
+import Header from './HomePageContent/Header';
 
 function Home() {
-    return <div className="my-container">hekkko</div>;
+    return (
+        <div className="">
+            <Header />
+        </div>
+    );
 }
 
 export default Home;
