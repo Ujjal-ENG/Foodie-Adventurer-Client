@@ -43,3 +43,25 @@
 .default {
     @apply font-medium tracking-wide text-red-600 transition-colors duration-200 hover:text-blue-400;
 }
+.card {
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background-color: red;
+    transition: width 0.5s ease-in-out;
+}
+
+.card:hover .textred {
+    color: red;
+}
+
+.card:hover .progress-bar {
+    width: 100%;
+}
