@@ -10,11 +10,12 @@ import { EffectCoverflow } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 
-function Right({ data }) {
+function Right({ data, getData }) {
     const [indexes, setIndex] = useState(0);
 
     function handleSlideChange(swiper) {
         setIndex(swiper.realIndex);
+        getData(swiper.realIndex);
     }
 
     return (

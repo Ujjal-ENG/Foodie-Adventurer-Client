@@ -12,7 +12,9 @@ import Right from './Right';
 
 function Header() {
     const [sliderData, setSliderData] = useState([]);
-
+    const [backgroudImage, setBackgrondImage] = useState(null);
+    const [isImageBg, setIsImgBg] = useState(false);
+    const [ids, setId] = useState(0);
     // get data
     const getSliderData = async () => {
         try {
@@ -26,6 +28,13 @@ function Header() {
         }
     };
 
+    const getData = (id) => {
+        const findData = sliderData.find((el) => el.id === id);
+        setBackgrondImage(findData);
+        setIsImgBg(true);
+        setId(id);
+    };
+
     useEffect(() => {
         getSliderData();
     }, []);
@@ -37,10 +46,10 @@ function Header() {
             <div className="relative z-10">
                 <div className="grid grid-cols-12 justify-items-center px-12 items-center h-full mt-12">
                     <div className="col-span-4">
-                        <Left />
+                        <Left data={backgroudImage} id={ids} />
                     </div>
                     <div className="col-span-8 ml-24">
-                        <Right data={sliderData} />
+                        <Right data={sliderData} getData={getData} />
                     </div>
                 </div>
             </div>
