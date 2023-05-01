@@ -37,7 +37,7 @@ function CardSlider({ data }) {
                                 <p className="text-gray-600 mb-2">Number of recipes: {item.numberOfRecipes}</p>
                                 <p className="text-gray-600">Likes: {item.likes}</p>
                             </div>
-                            <Link to={`/chef-recipes/${item.id}`} className="btn btn-primary w-full mt-auto">
+                            <Link to={`chef-recipes/${item.id}`} className="btn btn-primary w-full mt-auto">
                                 View Recipes
                             </Link>
                         </div>

@@ -8,8 +8,9 @@ function App() {
     return (
         <AuthProvider>
             <Navbar />
-
-            <Outlet />
+            <div className="min-h-[calc(100vh-308px)]">
+                <Outlet />
+            </div>
 
             <Footer />
         </AuthProvider>
