@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable comma-dangle */
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-indent */

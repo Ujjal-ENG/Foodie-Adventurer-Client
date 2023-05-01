@@ -40,7 +40,6 @@ function Header() {
         getSliderData();
     }, []);
 
-    console.log(sliderData);
     return (
         <>
             {isImageBg && ids !== 0 ? (
