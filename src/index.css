@@ -35,17 +35,25 @@
     -webkit-text-stroke-color: white;
     text-stroke-color: white;
 }
-#my-navbar {
-    background-color: transparent;
-}
 
-#my-navbar .navbar-content {
-    background-color: transparent;
-}
 .active {
     @apply font-medium tracking-wide text-blue-700 transition-colors duration-200 hover:text-blue-400;
 }
 
 .default {
     @apply font-medium tracking-wide text-red-600 transition-colors duration-200 hover:text-blue-400;
+}
+.welcome-text {
+    animation: slideIn 1s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }

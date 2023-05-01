@@ -10,7 +10,7 @@ function Left({ data, id }) {
         return (
             <div className="px-4">
                 <span
-                    className="hover-stroke text-5xl w-full font-bold"
+                    className="hover-stroke text-4xl w-full font-bold"
                     data-text="Food is not just fuel, it's information. It talks to your DNA and tells it what to do, how to behave, and whether to express or suppress certain genes. So, eat the best and make your body sing with joy!">
                     Food is not just fuel, it's information. It talks to your DNA and tells it what to do, how to behave, and whether to express or suppress certain genes. So, eat the best and make
                     your body sing with joy!
