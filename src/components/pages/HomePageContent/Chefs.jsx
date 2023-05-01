@@ -14,12 +14,14 @@ function Chefs() {
     }, []);
     return (
         <div>
-            <div className="py-20">
+            <div className="py-10">
                 <h3 data-aos="fade-up" className="text-center text-4xl font-bold pt-2" data-aos-duration="1000">
                     Our Valuable Chefs
                 </h3>
             </div>
-            <ChefCard />
+            <div className="my-container grid grid-cols-3 gap-6">
+                <ChefCard />
+            </div>
         </div>
     );
 }
