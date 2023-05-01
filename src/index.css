@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 /* Tailwind CSS custom Style and Using this style whatever i want */
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap');
 .my-container {
-    @apply px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20;
+    @apply px-3 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-4 lg:px-4 lg:py-5;
 }
 
 @layer components {
@@ -14,8 +14,26 @@
     }
 }
 
-.badge {
-    @apply inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-yellow-400;
+.hover-stroke {
+    position: relative;
+    display: inline-block;
+}
+
+.hover-stroke::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    -webkit-text-stroke: 1px black;
+    text-stroke: 1px black;
+    transition: all 0.3s ease-in-out;
+}
+
+.hover-stroke:hover::after {
+    color: transparent;
+    -webkit-text-stroke-color: white;
+    text-stroke-color: white;
 }
 
 .active {
