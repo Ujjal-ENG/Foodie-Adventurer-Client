@@ -13,12 +13,12 @@ SwiperCore.use([Autoplay]);
 
 function CardSlider({ data }) {
     return (
-        <Swiper className="max-w-7xl mx-auto" slidesPerView={3} spaceBetween={30} loop autoplay={{ delay: 2000 }}>
+        <Swiper className="max-w-7xl mx-auto swiper-container" slidesPerView={3} spaceBetween={30} loop>
             {data.map((item) => (
                 <SwiperSlide key={item.id} className="max-w-6xl">
-                    <div className="w-full p-4 duration-200 transition-all ease-in-out hover:-translate-y-4">
+                    <div className="w-full p-4">
                         <div className="border rounded-lg overflow-hidden shadow-md">
-                            <img src={item.chefPicture} alt={item.chefName} className="w-full h-56 object-cover " />
+                            <img src={item.chefPicture} alt={item.chefName} className="w-full h-56 object-cover duration-200 transition-all ease-linear hover:-scale-x-110" />
                             <div className="p-4">
                                 <h2 className="text-lg font-bold mb-2">{item.chefName}</h2>
                                 <p className="text-gray-600 mb-2">Years of experience: {item.yearsOfExperience}</p>
