@@ -105,7 +105,7 @@ function Register() {
                         </button>
                     </div>
                 </form>
-                <div className="text-gray-500 text-center text-sm font-bold text-xl">
+                <div className="text-gray-500 text-center font-bold text-xl">
                     Already have an account?
                     <Link to="/login" className="text-blue-500 hover:text-blue-700">
                         Log In
