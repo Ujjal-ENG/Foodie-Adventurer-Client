@@ -34,6 +34,10 @@ function Register() {
             setIsError(false);
             newErrors.push('Password must contain at least one digit');
         }
+        if (!/[@$!%*#?&]/.test(newPassword)) {
+            setIsError(false);
+            newErrors.push('Password must contain at least one special character');
+        }
 
         setErrors(newErrors);
         setIsError(true);
@@ -47,7 +51,7 @@ function Register() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 flex justify-center items-center">
+        <div className="min-h-screen  flex justify-center items-center">
             <div className="max-w-md w-full mx-auto">
                 <div className="text-center font-bold text-gray-700 text-3xl mb-6">Sign up</div>
                 <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -134,12 +138,12 @@ function Register() {
                         </div>
                     </div>
                     <div className="flex items-center justify-center">
-                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                        <button className="btn btn-primary w-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                             Sign up
                         </button>
                     </div>
                 </form>
-                <div className="text-gray-500 text-center font-bold text-xl">
+                <div className="text-gray-500 text-center font-bold text-xl pb-2">
                     Already have an account?
                     <Link to="/login" className="text-blue-500 hover:text-blue-700">
                         Log In

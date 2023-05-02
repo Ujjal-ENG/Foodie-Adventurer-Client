@@ -34,7 +34,7 @@ function ChefRecipes() {
             </div>
 
             <div className="my-container">
-                <h1 className="bg-gradient-to-r animate-pulse text-center from-purple-400 via-pink-500 to-red-500 text-5xl font-bold bg-clip-text text-transparent animate-gradient-x">
+                <h1 className="title-text text-4xl font-bold text-center">
                     Top {findData.recipes.length} recipes of {findData.chefName}
                 </h1>
                 {findData.recipes.map((el, idx) => (
