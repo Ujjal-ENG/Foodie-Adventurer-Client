@@ -43,7 +43,7 @@ function Header() {
     return (
         <>
             {isImageBg && ids !== 0 ? (
-                <div className="hero min-h-screen" style={{ backgroundImage: `url(${backgroudImage.img})` }}>
+                <div className="hero min-h-screen duration-200 transition-all ease-in-out" style={{ backgroundImage: `url(${backgroudImage.img})` }}>
                     <div className="hero-overlay bg-opacity-30" />
                     <div className="relative z-10">
                         <div className="grid grid-cols-12 justify-items-center px-12 items-center h-full mt-12">
@@ -64,7 +64,7 @@ function Header() {
                             <div className="col-span-4">
                                 <Left data={backgroudImage} id={ids} />
                             </div>
-                            <div className="col-span-8 ml-24">
+                            <div className="col-span-8 ml-24 duration-200 transition-all ">
                                 <Right data={sliderData} getData={getData} />
                             </div>
                         </div>
