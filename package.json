@@ -10,17 +10,20 @@
         "lint": "npm i -D prettier && npm i -D babel-eslint && npx install-peerdeps --dev eslint-config-airbnb && npm i -D eslint-config-prettier eslint-plugin-prettier"
     },
     "dependencies": {
+        "@react-pdf/renderer": "^3.1.9",
         "aos": "^2.3.4",
         "axios": "^1.4.0",
         "daisyui": "^2.51.6",
         "firebase": "^9.21.0",
         "framer-motion": "^10.12.6",
+        "jspdf": "^2.5.1",
         "localforage": "^1.10.0",
         "match-sorter": "^6.3.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-hot-toast": "^2.4.1",
         "react-icons": "^4.8.0",
+        "react-lottie": "^1.2.3",
         "react-router-dom": "^6.10.0",
         "sort-by": "^1.2.0",
         "swiper": "^9.2.4"

@@ -1,5 +1,8 @@
+/* eslint-disable react/jsx-indent-props */
+/* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable object-curly-newline */
 /* eslint-disable react/jsx-indent */
+import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { FaClock, FaUser } from 'react-icons/fa';
 
@@ -8,7 +11,11 @@ function BlogCard({ data }) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+        <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
             <div className="flex flex-col">
                 <div className="md:flex-shrink-0">
                     <img className="h-full w-full max-h-72 object-cover " src={img} alt={question} />
@@ -26,7 +33,7 @@ function BlogCard({ data }) {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }
 
