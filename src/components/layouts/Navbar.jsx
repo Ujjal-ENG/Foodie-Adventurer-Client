@@ -29,6 +29,9 @@ function Navbar() {
                 <NavLink to="/blog" className={({ isAcitve }) => (isAcitve ? 'active' : 'default')}>
                     Blog
                 </NavLink>
+                <NavLink to="/about" className={({ isAcitve }) => (isAcitve ? 'active' : 'default')}>
+                    About Us
+                </NavLink>
                 <NavLink to="/login" className={({ isAcitve }) => (isAcitve ? 'active' : 'default')}>
                     Login
                 </NavLink>
