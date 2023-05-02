@@ -12,6 +12,32 @@ function Register() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [photoUrl, setPhotoUrl] = useState('');
+    const [errors, setErrors] = useState([]);
+    const [isError, setIsError] = useState(false);
+    const handlePasswordChange = (event) => {
+        const newPassword = event.target.value;
+        setPassword(newPassword);
+        const newErrors = [];
+        if (newPassword.length < 6) {
+            setIsError(false);
+            newErrors.push('Password must be at least 6 characters');
+        }
+        if (!/[A-Z]/.test(newPassword)) {
+            setIsError(false);
+            newErrors.push('Password must contain at least one uppercase letter');
+        }
+        if (!/[a-z]/.test(newPassword)) {
+            setIsError(false);
+            newErrors.push('Password must contain at least one lowercase letter');
+        }
+        if (!/[0-9]/.test(newPassword)) {
+            setIsError(false);
+            newErrors.push('Password must contain at least one digit');
+        }
+
+        setErrors(newErrors);
+        setIsError(true);
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -75,10 +101,16 @@ function Register() {
                                 type="password"
                                 placeholder="Your password"
                                 value={password}
-                                onChange={(e) => setPassword(e.target.value)}
+                                onChange={handlePasswordChange}
                                 required
                             />
                         </div>
+                        {errors.map((error) => (
+                            <p key={error} className="text-sm text-red-600 mt-1">
+                                {error}
+                            </p>
+                        ))}
+                        {errors.length === 0 && isError && <p className="text-sm text-green-600 font-bold mt-1">Your Password is Very Secured!!</p>}
                     </div>
                     <div className="mb-4">
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="photoUrl">
