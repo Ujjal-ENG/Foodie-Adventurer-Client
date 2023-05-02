@@ -20,18 +20,28 @@ SwiperCore.use([Autoplay]);
 function CardSlider({ data }) {
     return (
         <Swiper
-            className="max-w-7xl mx-auto"
-            slidesPerView={3}
-            spaceBetween={30}
+            className="max-w-xl md:max-w-7xl mx-auto"
             centeredSlides
             loop
             autoplay={{
-                delay: 3000,
+                delay: 4000,
                 disableOnInteraction: false
+            }}
+            breakpoints={{
+                // when window width is >= 768px
+                768: {
+                    slidesPerView: 1,
+                    spaceBetween: 0
+                },
+                // when window width is >= 1024px
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                }
             }}>
             {data.map((item) => (
                 <SwiperSlide key={item.id} className="max-w-6xl">
-                    <div className="w-full p-4 duration-200 transition-all ease-in-out hover:-translate-y-4">
+                    <div className="w-1/2 md:w-full hidden md:block p-4 duration-200 transition-all ease-in-out hover:-translate-y-4">
                         <div className="border rounded-lg overflow-hidden shadow-md">
                             <LazyLoad once>
                                 <img src={item.chefPicture} alt={item.chefName} className="w-full h-56 object-cover" />

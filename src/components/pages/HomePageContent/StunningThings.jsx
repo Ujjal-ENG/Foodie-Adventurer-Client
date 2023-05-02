@@ -1,8 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable comma-dangle */
 /* eslint-disable react/jsx-indent */
-import AOS from 'aos';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BiBowlHot } from 'react-icons/bi';
 import { FaGlassMartiniAlt } from 'react-icons/fa';
 import { GiBombingRun, GiChickenOven } from 'react-icons/gi';
@@ -10,13 +9,6 @@ import { GrDeliver } from 'react-icons/gr';
 import { SiCodechef } from 'react-icons/si';
 
 function StunningThings() {
-    useEffect(() => {
-        AOS.init({
-            duration: 1000, // animation duration in milliseconds
-            easing: 'ease-in-out', // animation easing
-            once: true // animation only happens once
-        });
-    }, []);
     return (
         <div className="my-container">
             <div className="py-10">
@@ -28,9 +20,9 @@ function StunningThings() {
                 </h3>
             </div>
 
-            <div className="grid grid-cols-3 justify-items-center gap-10">
+            <div className="grid md:grid-cols-3 grid-cols-1 justify-items-center gap-10">
                 {/* first div */}
-                <div className="card w-96 bg-base-300 shadow-xl duration-200 hover:translate-x-4 transition-all ease-linear">
+                <div className="card md:w-96 w-full bg-base-300 shadow-xl duration-200 md:hover:translate-x-4 transition-all ease-linear">
                     <div className="progress-bar" />
                     <BiBowlHot className="text-5xl mx-auto mt-2 textred" />
                     <div className="card-body flex justify-center items-center">
@@ -42,7 +34,7 @@ function StunningThings() {
                     </div>
                 </div>
                 {/* second div */}
-                <div className="card w-96 bg-base-300 shadow-xl duration-200 hover:translate-x-4 transition-all ease-linear">
+                <div className="card md:w-96 w-full bg-base-300 shadow-xl duration-200 md:hover:translate-x-4 transition-all ease-linear">
                     <div className="progress-bar" />
                     <FaGlassMartiniAlt className="text-5xl mx-auto mt-2 textred" />
                     <div className="card-body flex justify-center items-center">
@@ -54,7 +46,7 @@ function StunningThings() {
                     </div>
                 </div>
                 {/* third div */}
-                <div className="card w-96 bg-base-300 shadow-xl duration-200 hover:translate-x-4 transition-all ease-linear">
+                <div className="card md:w-96 w-full bg-base-300 shadow-xl duration-200 md:hover:translate-x-4 transition-all ease-linear">
                     <div className="progress-bar" />
                     <GiChickenOven className="text-5xl mx-auto mt-2 textred" />
                     <div className="card-body flex justify-center items-center">
@@ -66,7 +58,7 @@ function StunningThings() {
                     </div>
                 </div>
                 {/* fourth div */}
-                <div className="card w-96 bg-base-300 shadow-xl duration-200 hover:translate-x-4 transition-all ease-linear">
+                <div className="card md:w-96 w-full bg-base-300 shadow-xl duration-200 md:hover:translate-x-4 transition-all ease-linear">
                     <div className="progress-bar" />
                     <SiCodechef className="text-5xl mx-auto mt-2 textred" />
                     <div className="card-body flex justify-center items-center">
@@ -78,7 +70,7 @@ function StunningThings() {
                     </div>
                 </div>
                 {/* fifth div */}
-                <div className="card w-96 bg-base-300 shadow-xl duration-200 hover:translate-x-4 transition-all ease-linear">
+                <div className="card md:w-96 w-full bg-base-300 shadow-xl duration-200 md:hover:translate-x-4 transition-all ease-linear">
                     <div className="progress-bar" />
                     <GiBombingRun className="text-5xl mx-auto mt-2 textred" />
                     <div className="card-body flex justify-center items-center">
@@ -90,7 +82,7 @@ function StunningThings() {
                     </div>
                 </div>
                 {/* sixth div */}
-                <div className="card w-96 bg-base-300 shadow-xl duration-200 hover:translate-x-4 transition-all ease-linear">
+                <div className="card md:w-96 w-full bg-base-300 shadow-xl duration-200 md:hover:translate-x-4 transition-all ease-linear">
                     <div className="progress-bar" />
                     <GrDeliver className="text-5xl mx-auto mt-2 textred" />
                     <div className="card-body flex justify-center items-center">

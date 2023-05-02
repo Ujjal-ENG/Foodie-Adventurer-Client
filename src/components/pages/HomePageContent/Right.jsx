@@ -20,7 +20,7 @@ function Right({ data, getData }) {
 
     return (
         <Swiper
-            className="max-w-4xl"
+            className="max-w-2xl md:max-w-3xl lg:max-w-4xl"
             onSlideChange={handleSlideChange}
             modules={[EffectCoverflow]}
             effect="coverflow"
