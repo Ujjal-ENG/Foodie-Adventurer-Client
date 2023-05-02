@@ -6,12 +6,14 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/jsx-indent */
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
 function ChefRecpe({ data }) {
     const [isFavorite, setIsFavorite] = useState(false);
 
     const toggleFavorite = () => {
         setIsFavorite((prev) => !prev);
+        toast.success('Your Favorite Food is Added in your Favorite List!!');
     };
     return (
         <div>
