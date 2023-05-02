@@ -5,6 +5,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
 import AboutPage from '../components/pages/AboutPage';
+import Blogs from '../components/pages/Blogs/Blogs';
 import ChefRecipes from '../components/pages/ChefRecipes/ChefRecipes';
 import ErrorPage from '../components/pages/ErrorPage';
 import Home from '../components/pages/Home';
@@ -42,6 +43,11 @@ export const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register />
+            },
+            {
+                path: '/blogs',
+                element: <Blogs />,
+                loader: async () => fetch('http://localhost:8080/blogs-data')
             }
         ]
     }
