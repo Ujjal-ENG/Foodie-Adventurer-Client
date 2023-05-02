@@ -36,7 +36,7 @@ function Login() {
                                             type="email"
                                             autoComplete="email"
                                             required
-                                            className="focus:ring-yellow-500 focus:border-yellow-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
+                                            className="block w-full pl-10  sm:text-sm border-gray-300 rounded-md input input-bordered input-primary  max-w-xs"
                                         />
                                     </div>
                                 </div>
@@ -57,18 +57,13 @@ function Login() {
                                             type="password"
                                             autoComplete="current-password"
                                             required
-                                            className="focus:ring-yellow-500 focus:border-yellow-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
+                                            className="input input-bordered input-primary  max-w-xs block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
                                         />
                                     </div>
                                 </div>
                             </div>
 
                             <div className="flex items-center justify-between">
-                                <div className="text-sm">
-                                    <Link to="/register" className="font-medium text-blue-600 hover:text-blue-400">
-                                        Are you New? Register Please..
-                                    </Link>
-                                </div>
                                 <div className="text-sm">
                                     <Link to="/forgot-password" className="font-medium text-yellow-600 hover:text-yellow-500">
                                         Forgot your password?
@@ -84,6 +79,11 @@ function Login() {
                                 </button>
                             </div>
                         </form>
+                        <div className="text-sm pt-3">
+                            <Link to="/register" className="font-medium text-blue-600 hover:text-blue-400">
+                                Are you New? Register Please..
+                            </Link>
+                        </div>
                         <div className="mt-6">
                             <div className="relative">
                                 <div className="absolute inset-0 flex items-center" aria-hidden="true">
