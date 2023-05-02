@@ -5,6 +5,7 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/jsx-indent */
+import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 
@@ -16,7 +17,7 @@ function ChefRecpe({ data }) {
         toast.success('Your Favorite Food is Added in your Favorite List!!');
     };
     return (
-        <div>
+        <motion.div className="flex flex-col  items-center lg:items-start mb-10 lg:mb-0" initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
             <div className="shadow-xl px-5 my-4 duration-200 transition-all ease-in-out hover:shadow-2xl">
                 <div className="flex justify-between rounded-md overflow-hidden  px-3">
                     <img className="w-full max-w-xs rounded-xl h-64 object-cover my-auto" src={data.img} alt={data.recipeName} />
@@ -63,7 +64,7 @@ function ChefRecpe({ data }) {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }
 

@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/jsx-indent */
+import { motion } from 'framer-motion';
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ChefRecpe from './ChefRecpe';
@@ -12,7 +13,7 @@ function ChefRecipes() {
         <div>
             <div className="hero min-h-[calc(70vh)] bg-cover" style={{ backgroundImage: `url(${findData.chefPicture})` }}>
                 <div className="hero-overlay bg-opacity-70" />
-                <div className="hero-content flex-col lg:flex-row-reverse text-white">
+                <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="hero-content flex-col lg:flex-row-reverse text-white">
                     <img src={findData.chefPicture} className="max-w-sm rounded-lg shadow-2xl" alt={findData.chefName} />
                     <div>
                         <h1 className="text-5xl font-bold hover-stroke">{findData.chefName}</h1>
@@ -29,7 +30,7 @@ function ChefRecipes() {
                             </p>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
 
             <div className="my-container">
