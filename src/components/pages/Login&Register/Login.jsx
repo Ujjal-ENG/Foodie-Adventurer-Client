@@ -16,7 +16,6 @@ function Login() {
     const { signInUser, singInGoogle, signInGitHub } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
-    console.log(location);
     const from = location?.state?.from?.pathname || '/';
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
