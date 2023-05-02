@@ -5,6 +5,7 @@
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { FaClock, FaUser } from 'react-icons/fa';
+import LazyLoad from 'react-lazyload';
 
 function BlogCard({ data }) {
     const { img, question, answer, author } = data;
@@ -18,7 +19,9 @@ function BlogCard({ data }) {
             className="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
             <div className="flex flex-col">
                 <div className="md:flex-shrink-0">
-                    <img className="h-full w-full max-h-72 object-cover " src={img} alt={question} />
+                    <LazyLoad>
+                        <img className="h-full w-full max-h-72 object-cover " src={img} alt={question} />
+                    </LazyLoad>
                 </div>
                 <div className="p-8">
                     <h2 className="block mt-1 text-lg leading-tight font-medium text-black">{question}</h2>
