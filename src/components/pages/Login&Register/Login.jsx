@@ -6,11 +6,21 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-indent */
 import { motion } from 'framer-motion';
+import { useContext, useState } from 'react';
 import { AiFillGithub, AiFillGoogleCircle } from 'react-icons/ai';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../context/AuthProvider';
 
 function Login() {
+    const { signInUser, singInGoogle, signInGitHub } = useContext(AuthContext);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        signInUser(email, password);
+    };
     return (
         <div className="grid grid-cols-2 my-container ">
             <div className=" shadow-2xl rounded-md flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -20,7 +30,7 @@ function Login() {
 
                 <div className="mt-8 sm:mx-auto sm:w-full ">
                     <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                        <form className="space-y-6">
+                        <form onSubmit={handleSubmit} className="space-y-6">
                             <div>
                                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                                     Email address
@@ -35,6 +45,8 @@ function Login() {
                                             name="email"
                                             type="email"
                                             autoComplete="email"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
                                             required
                                             className="block w-full pl-10  sm:text-sm border-gray-300 rounded-md input input-bordered input-primary  "
                                         />
@@ -55,6 +67,8 @@ function Login() {
                                             id="password"
                                             name="password"
                                             type="password"
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
                                             autoComplete="current-password"
                                             required
                                             className="input input-bordered input-primary   block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
@@ -97,6 +111,7 @@ function Login() {
                             <div className="mt-6 grid grid-cols-2 gap-3">
                                 <div>
                                     <button
+                                        onClick={() => singInGoogle()}
                                         type="submit"
                                         className="group relative w-full flex justify-center py-2 px-4 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
                                         <span className="sr-only">Sign in with Google</span>
@@ -106,6 +121,7 @@ function Login() {
 
                                 <div>
                                     <button
+                                        onClick={() => signInGitHub()}
                                         type="submit"
                                         className="group relative w-full flex justify-center py-2 px-4 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
                                         <span className="sr-only">Sign in with GitHub</span>

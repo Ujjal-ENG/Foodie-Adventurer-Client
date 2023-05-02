@@ -1,9 +1,11 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 /* eslint-disable react/jsx-indent */
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider';
 
 function Navbar() {
+    const { userInfo, logOutUser } = useContext(AuthContext);
     const [isScrolled, setIsScrolled] = useState(false);
 
     useEffect(() => {
@@ -20,6 +22,7 @@ function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [isScrolled]);
 
+    console.log(userInfo);
     return (
         <nav className={`z-50 relative flex justify-between items-center duration-200 transition-all ${isScrolled ? 'sticky top-0 bg-white shadow-md px-6 py-2 ease-in' : 'my-container ease-out'}`}>
             <div className="flex items-center gap-2">
@@ -37,14 +40,22 @@ function Navbar() {
                 <NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : 'default')}>
                     About Us
                 </NavLink>
-                <NavLink to="/login" className={({ isActive }) => (isActive ? 'active' : 'default')}>
-                    Login
-                </NavLink>
-                <div className="avatar">
-                    <div className="w-12">
-                        <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600" alt="avatar" className="rounded-full" />
+                {!userInfo ? (
+                    <NavLink to="/login" className={({ isActive }) => (isActive ? 'active' : 'default')}>
+                        Login
+                    </NavLink>
+                ) : (
+                    <button type="button" onClick={() => logOutUser()} className="btn btn-sm btn-warning">
+                        LogOut
+                    </button>
+                )}
+                {userInfo && (
+                    <div className={`avatar ${userInfo && 'tooltip tooltip-primary tooltip-left'} `} data-tip={userInfo.displayName}>
+                        <div className="w-12">
+                            <img src={userInfo.photoURL} alt="avatar" className="rounded-full" />
+                        </div>
                     </div>
-                </div>
+                )}
             </div>
         </nav>
     );

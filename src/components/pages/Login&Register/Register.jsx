@@ -4,17 +4,21 @@
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-indent */
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { FaEnvelope, FaLock, FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../context/AuthProvider';
 
 function Register() {
+    const { createUser } = useContext(AuthContext);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [photoUrl, setPhotoUrl] = useState('');
     const [errors, setErrors] = useState([]);
     const [isError, setIsError] = useState(false);
+
+    // check password validation
     const handlePasswordChange = (event) => {
         const newPassword = event.target.value;
         setPassword(newPassword);
@@ -47,7 +51,7 @@ function Register() {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (errors.length === 0) {
-            console.log('Heelo');
+            createUser(name, photoUrl, email, password);
         }
     };
 

@@ -2,7 +2,17 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable comma-dangle */
 /* eslint-disable react/jsx-indent */
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+import {
+    GithubAuthProvider,
+    GoogleAuthProvider,
+    createUserWithEmailAndPassword,
+    getAuth,
+    onAuthStateChanged,
+    signInWithEmailAndPassword,
+    signInWithPopup,
+    signOut,
+    updateProfile
+} from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
@@ -12,12 +22,14 @@ export const AuthContext = createContext(null);
 
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
+const gitHubProvider = new GithubAuthProvider();
+
 function AuthProvider({ children }) {
     const [loading, setIsLoading] = useState(false);
     const [privateLoad, setPrivateLoad] = useState(true);
     const [userInfo, setUserInfo] = useState(null);
     const navigate = useNavigate();
-    const crearteUser = async (name, photo, email, password) => {
+    const createUser = async (name, photo, email, password) => {
         setIsLoading(true);
         setPrivateLoad(true);
         try {
@@ -47,25 +59,39 @@ function AuthProvider({ children }) {
         } catch (error) {
             console.log(error);
             setIsLoading(false);
-            toast.error('There was an error while signIn user!!');
+            toast.error('Invalid Email or Password!!!');
         }
     };
 
     const logOutUser = async () => {
         await signOut(auth);
+        navigate('/');
     };
 
     const singInGoogle = async () => {
         setIsLoading(true);
         try {
             await signInWithPopup(auth, provider);
-            toast.success('Successfully Logged In');
+            toast.success('Successfully Logged In using Google!!');
             setIsLoading(false);
             navigate('/');
         } catch (error) {
             setIsLoading(false);
             console.log(error);
-            toast.error('Error occured while user try to SignIn with Google!!');
+            toast.error('Error ocurred while user try to SignIn with Google!!');
+        }
+    };
+    const signInGitHub = async () => {
+        setIsLoading(true);
+        try {
+            await signInWithPopup(auth, gitHubProvider);
+            toast.success('Successfully Logged In using GitHub!!');
+            setIsLoading(false);
+            navigate('/');
+        } catch (error) {
+            setIsLoading(false);
+            console.log(error);
+            toast.error('Error ocurred while user try to SignIn with GitHub!!');
         }
     };
     useEffect(() => {
@@ -87,10 +113,11 @@ function AuthProvider({ children }) {
     const auths = {
         privateLoad,
         userInfo,
-        crearteUser,
+        createUser,
         signInUser,
         logOutUser,
-        singInGoogle
+        singInGoogle,
+        signInGitHub
     };
 
     return <AuthContext.Provider value={auths}>{children}</AuthContext.Provider>;
