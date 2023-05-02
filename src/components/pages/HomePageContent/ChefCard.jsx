@@ -19,30 +19,44 @@ SwiperCore.use([Autoplay]);
 
 function CardSlider({ data }) {
     return (
-        <Swiper
-            className="max-w-xl md:max-w-7xl mx-auto"
-            centeredSlides
-            loop
-            autoplay={{
-                delay: 4000,
-                disableOnInteraction: false
-            }}
-            breakpoints={{
-                // when window width is >= 768px
-                768: {
-                    slidesPerView: 1,
-                    spaceBetween: 0
-                },
-                // when window width is >= 1024px
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 30
-                }
-            }}>
-            {data.map((item) => (
-                <SwiperSlide key={item.id} className="max-w-6xl">
-                    <div className="w-1/2 md:w-full hidden md:block p-4 duration-200 transition-all ease-in-out hover:-translate-y-4">
-                        <div className="border rounded-lg overflow-hidden shadow-md">
+        <div className="mx-auto">
+            <div className="hidden md:block">
+                <Swiper
+                    className="max-w-7xl mx-auto"
+                    centeredSlides
+                    slidesPerView={3}
+                    spaceBetween={30}
+                    loop
+                    autoplay={{
+                        delay: 4000,
+                        disableOnInteraction: false
+                    }}>
+                    {data.map((item) => (
+                        <SwiperSlide key={item.id}>
+                            <div className="w-1/2 md:w-full  md:block p-4 duration-200 transition-all ease-in-out hover:-translate-y-4">
+                                <div className="border rounded-lg overflow-hidden shadow-md">
+                                    <LazyLoad once>
+                                        <img src={item.chefPicture} alt={item.chefName} className="w-full h-56 object-cover" />
+                                    </LazyLoad>
+                                    <div className="p-4">
+                                        <h2 className="text-lg font-bold mb-2">{item.chefName}</h2>
+                                        <p className="text-gray-600 mb-2">Years of experience: {item.yearsOfExperience}</p>
+                                        <p className="text-gray-600 mb-2">Number of recipes: {item.numberOfRecipes}</p>
+                                        <p className="text-gray-600">Likes: {item.likes}</p>
+                                    </div>
+                                    <Link to={`chef-recipes/${item.id}`} className="btn btn-primary w-full mt-auto">
+                                        View Recipes
+                                    </Link>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
+            <div className="md:hidden w-[300px] flex justify-center items-center flex-col space-y-4">
+                {data.map((item) => (
+                    <div key={item.id} className="w-full duration-200 transition-all ease-in-out hover:-translate-y-4">
+                        <div className="border rounded-lg  shadow-md">
                             <LazyLoad once>
                                 <img src={item.chefPicture} alt={item.chefName} className="w-full h-56 object-cover" />
                             </LazyLoad>
@@ -57,9 +71,9 @@ function CardSlider({ data }) {
                             </Link>
                         </div>
                     </div>
-                </SwiperSlide>
-            ))}
-        </Swiper>
+                ))}
+            </div>
+        </div>
     );
 }
 
