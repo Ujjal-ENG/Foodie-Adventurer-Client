@@ -22,7 +22,6 @@ function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [isScrolled]);
 
-    console.log(userInfo);
     return (
         <nav className={`z-50 relative flex justify-between items-center duration-200 transition-all ${isScrolled ? 'sticky top-0 bg-white shadow-md px-6 py-2 ease-in' : 'my-container ease-out'}`}>
             <div className="flex items-center gap-2">
