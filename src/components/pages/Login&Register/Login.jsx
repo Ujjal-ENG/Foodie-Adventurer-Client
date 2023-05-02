@@ -12,13 +12,13 @@ import { Link } from 'react-router-dom';
 
 function Login() {
     return (
-        <div className="grid grid-cols-2 my-container justify-items-center">
+        <div className="grid grid-cols-2 my-container ">
             <div className=" shadow-2xl rounded-md flex flex-col justify-center py-12 sm:px-6 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-md">
                     <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
                 </div>
 
-                <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+                <div className="mt-8 sm:mx-auto sm:w-full ">
                     <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
                         <form className="space-y-6">
                             <div>
@@ -36,7 +36,7 @@ function Login() {
                                             type="email"
                                             autoComplete="email"
                                             required
-                                            className="block w-full pl-10  sm:text-sm border-gray-300 rounded-md input input-bordered input-primary  max-w-xs"
+                                            className="block w-full pl-10  sm:text-sm border-gray-300 rounded-md input input-bordered input-primary  "
                                         />
                                     </div>
                                 </div>
@@ -57,7 +57,7 @@ function Login() {
                                             type="password"
                                             autoComplete="current-password"
                                             required
-                                            className="input input-bordered input-primary  max-w-xs block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
+                                            className="input input-bordered input-primary   block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
                                         />
                                     </div>
                                 </div>
@@ -74,7 +74,7 @@ function Login() {
                             <div>
                                 <button
                                     type="submit"
-                                    className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
+                                    className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white btn btn-primary">
                                     Login
                                 </button>
                             </div>
