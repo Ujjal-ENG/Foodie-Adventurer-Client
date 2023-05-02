@@ -46,7 +46,7 @@ function Header() {
                 <div className="hero min-h-screen duration-200 transition-all ease-in-out" style={{ backgroundImage: `url(${backgroudImage.img})` }}>
                     <div className="hero-overlay bg-opacity-30" />
                     <div className="relative z-10">
-                        <div className="grid grid-cols-12 justify-items-center px-12 items-center h-full mt-12">
+                        <div className="grid md:grid-cols-12  justify-items-center px-12 items-center h-full mt-12">
                             <div className="col-span-4">
                                 <Left data={backgroudImage} id={ids} />
                             </div>
