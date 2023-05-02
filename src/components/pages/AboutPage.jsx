@@ -1,48 +1,68 @@
+/* eslint-disable react/jsx-closing-bracket-location */
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/jsx-indent-props */
 /* eslint-disable object-curly-newline */
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-indent */
-import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaUtensils } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import React from 'react';
+import { FaMapMarkerAlt, FaUtensils } from 'react-icons/fa';
+import { FiClock } from 'react-icons/fi';
+import { RiHotelBedFill } from 'react-icons/ri';
 
 function AboutPage() {
     return (
-        <div className="flex flex-col items-center justify-center p-10">
-            <div className="text-center mb-10">
-                <h1 className="text-4xl font-bold mb-2">About Us</h1>
-                <p className="text-lg">
-                    Foodie Adventurer is a restaurant that serves delicious food from around the world. Our goal is to provide our customers with a unique and unforgettable dining experience.
-                </p>
-            </div>
-            <div className="flex flex-col md:flex-row justify-center items-center gap-12">
-                <div className="flex flex-col items-center">
-                    <FaUtensils className="text-5xl mb-4" />
-                    <h2 className="text-lg font-bold mb-2">Our Food</h2>
-                    <p className="text-md text-center">
-                        We use only the freshest and highest quality ingredients to create our dishes. Our menu offers a wide variety of dishes from all around the world.
+        <div className=" flex flex-col items-center justify-center">
+            <h1 className="text-4xl font-bold text-center mb-8">Welcome to Foodie Adventurer!</h1>
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-14 lg:justify-between  my-container w-full  mx-auto px-6 lg:px-0">
+                <motion.div
+                    className="flex flex-col  items-center lg:items-start mb-10 lg:mb-0"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}>
+                    <FaUtensils className="text-6xl text-green-500 mb-4" />
+                    <h2 className="text-2xl font-semibold mb-4">Our Cuisine</h2>
+                    <p className="text-lg text-gray-700 text-center lg:text-left">
+                        We specialize in a variety of cuisines from all over the world. Our menu includes dishes from Italy, Thailand, India, and more. We use fresh, locally-sourced ingredients to
+                        ensure that our dishes are of the highest quality.
                     </p>
-                </div>
-                <div className="flex flex-col items-center">
-                    <FaMapMarkerAlt className="text-5xl mb-4" />
-                    <h2 className="text-lg font-bold mb-2">Our Location</h2>
-                    <p className="text-md text-center">
-                        We are located in the heart of downtown, just a few blocks from the waterfront. Our restaurant is easily accessible by car, bike, or public transportation.
+                </motion.div>
+                <motion.div
+                    className="flex flex-col items-center lg:items-start mb-10 lg:mb-0"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}>
+                    <FaMapMarkerAlt className="text-6xl text-red-500 mb-4" />
+                    <h2 className="text-2xl font-semibold mb-4">Our Location</h2>
+                    <p className="text-lg text-gray-700 text-center lg:text-left">
+                        You can find us in the heart of downtown, just a few blocks from the waterfront. Our restaurant is located at 123 Main St. and is easily accessible by public transportation or
+                        by car. We also offer valet parking for your convenience.
                     </p>
-                </div>
-                <div className="flex flex-col items-center">
-                    <FaPhone className="text-5xl mb-4" />
-                    <h2 className="text-lg font-bold mb-2">Contact Us</h2>
-                    <p className="text-md text-center">Give us a call to make a reservation or to ask any questions you may have. We look forward to hearing from you!</p>
-                    <a href="tel:123-456-7890" className="text-md font-bold mt-2">
-                        123-456-7890
-                    </a>
-                </div>
-                <div className="flex flex-col items-center">
-                    <FaEnvelope className="text-5xl mb-4" />
-                    <h2 className="text-lg font-bold mb-2">Email Us</h2>
-                    <p className="text-md text-center">If you have any questions or comments, feel free to send us an email. We would love to hear from you!</p>
-                    <a href="mailto:info@foodieadventurer.com" className="text-md font-bold mt-2">
-                        info@foodieadventurer.com
-                    </a>
-                </div>
+                </motion.div>
+                <motion.div
+                    className="flex flex-col items-center lg:items-start mb-10 lg:mb-0"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.6 }}>
+                    <RiHotelBedFill className="text-6xl text-blue-500 mb-4" />
+                    <h2 className="text-2xl font-semibold mb-4">Our Accommodations</h2>
+                    <p className="text-lg text-gray-700 text-center lg:text-left">
+                        If you're visiting from out of town, we've got you covered. Our restaurant is located within walking distance of several hotels and other accommodations. We also offer a
+                        discount on your meal if you're staying at one of our partner hotels.
+                    </p>
+                </motion.div>
+                <motion.div
+                    className="flex flex-col items-center lg:items-start mb-10 lg:mb-0"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.8 }}>
+                    <FiClock className="text-6xl text-yellow-500 mb-4" />
+                    <h2 className="text-2xl font-semibold mb-4">Our Hours</h2>
+                    <p className="text-lg text-gray-700 text-center lg:text-left">
+                        We're open 7 days a week from 11am to 10pm. Whether you're looking for a quick lunch or a leisurely dinner, we've got you covered. We also offer a weekend brunch menu from 9am
+                        to 2pm on Saturdays and Sundays.
+                    </p>
+                </motion.div>
             </div>
         </div>
     );
