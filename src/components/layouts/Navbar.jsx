@@ -28,16 +28,16 @@ function Navbar() {
             </div>
 
             <div className="flex justify-around items-center gap-12 text-2xl">
-                <NavLink to="/" className={({ isAcitve }) => (isAcitve ? 'active' : 'default')}>
+                <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : 'default')}>
                     Home
                 </NavLink>
-                <NavLink to="/blog" className={({ isAcitve }) => (isAcitve ? 'active' : 'default')}>
+                <NavLink to="/blog" className={({ isActive }) => (isActive ? 'active' : 'default')}>
                     Blog
                 </NavLink>
-                <NavLink to="/about" className={({ isAcitve }) => (isAcitve ? 'active' : 'default')}>
+                <NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : 'default')}>
                     About Us
                 </NavLink>
-                <NavLink to="/login" className={({ isAcitve }) => (isAcitve ? 'active' : 'default')}>
+                <NavLink to="/login" className={({ isActive }) => (isActive ? 'active' : 'default')}>
                     Login
                 </NavLink>
                 <div className="avatar">
