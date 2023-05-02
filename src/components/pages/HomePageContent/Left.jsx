@@ -24,12 +24,12 @@ function Left({ data, id }) {
         );
     }
     return (
-        <motion.dev initial={{ opacity: 0, x: -150 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9, delay: 0.3 }} className="w-full space-y-4">
+        <motion.div initial={{ opacity: 0, x: -150 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9, delay: 0.3 }} className="w-full space-y-4">
             <h1 className="hover-stroke uppercase tracking-widest text-5xl font-bold " data-text={data.title}>
                 {data.title}
             </h1>
             <p className="text-gray-100 font-bold text-xl tracking-wider ">{`${data.description}`}</p>
-        </motion.dev>
+        </motion.div>
     );
 }
 

@@ -38,7 +38,7 @@ function Right({ data, getData }) {
             {data.map((el) => (
                 <SwiperSlide key={el.id}>
                     <div className={`w-80 rounded-lg h-96  shadow-xl image-full relative ${indexes === el.id ? 'border-2 border-yellow-400' : 'border-0'}`}>
-                        <img src={el.img} className="w-full h-full rounded-lg object-cover" alt="Shoes" />
+                        <img src={el.img} className="w-full h-full rounded-lg object-cover" alt="slider-img" />
                         <h1 className="hover-stroke absolute -top-20 right-0 text-4xl w-full font-bold" data-text={el.title}>
                             {el.title}
                         </h1>
