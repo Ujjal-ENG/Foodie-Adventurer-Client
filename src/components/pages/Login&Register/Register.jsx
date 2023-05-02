@@ -41,7 +41,9 @@ function Register() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // handle registration form submission
+        if (errors.length === 0) {
+            console.log('Heelo');
+        }
     };
 
     return (
