@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/jsx-indent */
 import React from 'react';
@@ -35,8 +36,8 @@ function ChefRecipes() {
                 <h1 className="bg-gradient-to-r animate-pulse text-center from-purple-400 via-pink-500 to-red-500 text-5xl font-bold bg-clip-text text-transparent animate-gradient-x">
                     Top {findData.recipes.length} recipes of {findData.chefName}
                 </h1>
-                {findData.recipes.map((el) => (
-                    <ChefRecpe key={el.id} data={el} />
+                {findData.recipes.map((el, idx) => (
+                    <ChefRecpe key={idx} data={el} />
                 ))}
             </div>
         </div>

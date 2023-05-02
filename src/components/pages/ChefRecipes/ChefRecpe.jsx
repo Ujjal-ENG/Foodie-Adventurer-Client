@@ -24,6 +24,9 @@ function ChefRecpe({ data }) {
                             <p className="text-gray-700 text-base mb-2 text-center">{data.cookingMethod}</p>
                         </div>
                         <div className="grid grid-cols-3 gap-5">
+                            <div className="flex justify-start items-end">
+                                <h3 className="text-lg font-bold mb-2">Activities</h3>
+                            </div>
                             <div>
                                 <h3 className="text-lg font-bold mb-2">Ingredients</h3>
                                 <ul className="list-disc pl-5 mb-2">
@@ -31,9 +34,6 @@ function ChefRecpe({ data }) {
                                         <li key={idx}>{el}</li>
                                     ))}
                                 </ul>
-                            </div>
-                            <div>
-                                <h3 className="text-lg font-bold mb-2">Activities</h3>
                             </div>
 
                             <div className="flex justify-end items-end">
