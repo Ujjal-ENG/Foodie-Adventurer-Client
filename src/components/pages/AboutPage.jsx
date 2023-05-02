@@ -9,6 +9,7 @@ import React from 'react';
 import { FaMapMarkerAlt, FaUtensils } from 'react-icons/fa';
 import { FiClock } from 'react-icons/fi';
 import { RiHotelBedFill } from 'react-icons/ri';
+import Maps from './Maps';
 
 function AboutPage() {
     return (
@@ -64,6 +65,8 @@ function AboutPage() {
                     </p>
                 </motion.div>
             </div>
+
+            <Maps />
         </div>
     );
 }
