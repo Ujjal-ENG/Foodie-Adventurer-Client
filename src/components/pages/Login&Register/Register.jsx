@@ -5,6 +5,7 @@
 /* eslint-disable react/jsx-indent */
 import { useState } from 'react';
 import { FaEnvelope, FaLock, FaUser } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 function Register() {
     const [name, setName] = useState('');
@@ -104,9 +105,9 @@ function Register() {
                         </button>
                     </div>
                 </form>
-                <div className="text-gray-500 text-center text-sm">
+                <div className="text-gray-500 text-center text-sm font-bold text-xl">
                     Already have an account?
-                    <Link to="#" className="text-blue-500 hover:text-blue-700">
+                    <Link to="/login" className="text-blue-500 hover:text-blue-700">
                         Log In
                     </Link>
                 </div>

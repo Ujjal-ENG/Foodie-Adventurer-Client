@@ -6,6 +6,8 @@ import AboutPage from '../components/pages/AboutPage';
 import ChefRecipes from '../components/pages/ChefRecipes/ChefRecipes';
 import ErrorPage from '../components/pages/ErrorPage';
 import Home from '../components/pages/Home';
+import Login from '../components/pages/Login&Register/Login';
+import Register from '../components/pages/Login&Register/Register';
 
 export const router = createBrowserRouter([
     {
@@ -25,6 +27,14 @@ export const router = createBrowserRouter([
             {
                 path: '/about',
                 element: <AboutPage />
+            },
+            {
+                path: '/login',
+                element: <Login />
+            },
+            {
+                path: '/register',
+                element: <Register />
             }
         ]
     }
