@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable object-curly-newline */
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable comma-dangle */
@@ -57,7 +58,6 @@ function AuthProvider({ children }) {
             toast.success('User is Logged in Successfully!!!');
             setIsLoading(false);
         } catch (error) {
-            console.log(error);
             setIsLoading(false);
             toast.error('Invalid Email or Password!!!');
         }
@@ -77,7 +77,6 @@ function AuthProvider({ children }) {
             navigate('/');
         } catch (error) {
             setIsLoading(false);
-            console.log(error);
             toast.error('Error ocurred while user try to SignIn with Google!!');
         }
     };
@@ -90,8 +89,7 @@ function AuthProvider({ children }) {
             navigate('/');
         } catch (error) {
             setIsLoading(false);
-            console.log(error);
-            toast.error('Error ocurred while user try to SignIn with GitHub!!');
+            toast.error('Email is already Exists!!');
         }
     };
     useEffect(() => {
