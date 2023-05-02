@@ -9,17 +9,22 @@ import { motion } from 'framer-motion';
 import { useContext, useState } from 'react';
 import { AiFillGithub, AiFillGoogleCircle } from 'react-icons/ai';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
 
 function Login() {
     const { signInUser, singInGoogle, signInGitHub } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    console.log(location);
+    const from = location?.state?.from?.pathname || '/';
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
         signInUser(email, password);
+        navigate(from);
     };
     return (
         <div className="grid grid-cols-2 my-container ">

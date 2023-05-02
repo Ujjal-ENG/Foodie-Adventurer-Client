@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-indent */
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable comma-dangle */
 import { createBrowserRouter } from 'react-router-dom';
@@ -8,6 +10,7 @@ import ErrorPage from '../components/pages/ErrorPage';
 import Home from '../components/pages/Home';
 import Login from '../components/pages/Login&Register/Login';
 import Register from '../components/pages/Login&Register/Register';
+import PrivateRoute from './PrivateRoute';
 
 export const router = createBrowserRouter([
     {
@@ -21,7 +24,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/chef-recipes/:id',
-                element: <ChefRecipes />,
+                element: (
+                    <PrivateRoute>
+                        <ChefRecipes />,
+                    </PrivateRoute>
+                ),
                 loader: async ({ params }) => fetch(`http://localhost:8080/recipe-data/${params.id}`)
             },
             {
