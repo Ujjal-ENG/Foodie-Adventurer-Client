@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable jsx-a11y/iframe-has-title */
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable jsx-a11y/anchor-is-valid */
@@ -7,7 +8,7 @@
 /* eslint-disable react/jsx-indent */
 import { motion } from 'framer-motion';
 import { useContext, useState } from 'react';
-import { AiFillGithub, AiFillGoogleCircle } from 'react-icons/ai';
+import { AiFillEye, AiFillEyeInvisible, AiFillGithub, AiFillGoogleCircle } from 'react-icons/ai';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
@@ -19,7 +20,7 @@ function Login() {
     const from = location?.state?.from?.pathname || '/';
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    const [passwordShow, setPasswordShow] = useState(false);
     const handleSubmit = (e) => {
         e.preventDefault();
         signInUser(email, password);
@@ -79,13 +80,18 @@ function Login() {
                                         <input
                                             id="password"
                                             name="password"
-                                            type="password"
+                                            type={`${passwordShow ? 'text' : 'password'}`}
                                             value={password}
                                             onChange={(e) => setPassword(e.target.value)}
                                             autoComplete="current-password"
                                             required
                                             className="input input-bordered input-primary   block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
                                         />
+                                        {!passwordShow ? (
+                                            <AiFillEyeInvisible className="absolute text-3xl right-4 top-2 cursor-pointer" onClick={() => setPasswordShow(!passwordShow)} />
+                                        ) : (
+                                            <AiFillEye className="absolute text-3xl right-4 top-2 cursor-pointer" onClick={() => setPasswordShow(!passwordShow)} />
+                                        )}
                                     </div>
                                 </div>
                             </div>

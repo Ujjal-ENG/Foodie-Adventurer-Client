@@ -5,6 +5,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-indent */
 import { useContext, useState } from 'react';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import { FaEnvelope, FaLock, FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
@@ -17,6 +18,7 @@ function Register() {
     const [photoUrl, setPhotoUrl] = useState('');
     const [errors, setErrors] = useState([]);
     const [isError, setIsError] = useState(false);
+    const [passwordShow, setPasswordShow] = useState(false);
 
     // check password validation
     const handlePasswordChange = (event) => {
@@ -110,12 +112,17 @@ function Register() {
                                 <input
                                     className="shadow appearance-none border rounded w-full py-2 pl-10 pr-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                     id="password"
-                                    type="password"
+                                    type={`${passwordShow ? 'text' : 'password'}`}
                                     placeholder="Your password"
                                     value={password}
                                     onChange={handlePasswordChange}
                                     required
                                 />
+                                {!passwordShow ? (
+                                    <AiFillEyeInvisible className="absolute text-3xl right-4 top-1 cursor-pointer" onClick={() => setPasswordShow(!passwordShow)} />
+                                ) : (
+                                    <AiFillEye className="absolute text-3xl right-4 top-1 cursor-pointer" onClick={() => setPasswordShow(!passwordShow)} />
+                                )}
                             </div>
                             {errors.map((error) => (
                                 <p key={error} className="text-sm text-red-600 mt-1">
