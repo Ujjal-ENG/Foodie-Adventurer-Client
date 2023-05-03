@@ -52,7 +52,7 @@ function Right({ data, getData }) {
 
             <div className="md:hidden  flex justify-center items-center flex-col space-y-4">
                 {data.map((el) => (
-                    <div className={`w-full rounded-lg h-[240px]  shadow-xl image-full relative  ${indexes === el.id ? 'border-2 border-yellow-400' : 'border-0'}`}>
+                    <div key={el.id} className={`w-full rounded-lg h-[240px]  shadow-xl image-full relative  ${indexes === el.id ? 'border-2 border-yellow-400' : 'border-0'}`}>
                         <img src={el.img} className="w-full h-full rounded-lg object-cover" alt="slider-img" />
                         <h1 className="hover-stroke absolute -top-20 right-0 text-2xl w-full font-bold" data-text={el.title}>
                             {el.title}
