@@ -19,20 +19,20 @@ function ChefRecpe({ data }) {
     return (
         <motion.div className="flex flex-col  items-center lg:items-start mb-10 lg:mb-0" initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
             <div className="shadow-xl px-5 my-4 duration-200 transition-all ease-in-out hover:shadow-2xl">
-                <div className="flex justify-between rounded-md overflow-hidden  px-3">
+                <div className="flex flex-col md:flex-row justify-between rounded-md overflow-hidden  px-3">
                     <img className="w-full max-w-xs rounded-xl h-64 object-cover my-auto" src={data.img} alt={data.recipeName} />
                     <div className="px-4 py-4">
                         <div>
                             <h2 className="font-bold mb-2 text-center text-2xl">{data.recipeName}</h2>
                             <p className="text-gray-700 text-base mb-2 text-center">{data.cookingMethod}</p>
                         </div>
-                        <div className="grid grid-cols-3 gap-5">
+                        <div className="grid grid-cols-1 justify-items-center md:justify-items-start md:grid-cols-3 gap-5">
                             <div className="flex justify-start items-end">
                                 <h3 className="text-lg font-bold mb-2">Activities</h3>
                             </div>
                             <div>
                                 <h3 className="text-lg font-bold mb-2">Ingredients</h3>
-                                <ul className="list-disc pl-5 mb-2">
+                                <ul className="list-disc  pl-5 mb-2">
                                     {data.ingredients.map((el, idx) => (
                                         <li key={idx}>{el}</li>
                                     ))}

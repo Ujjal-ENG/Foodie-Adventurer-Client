@@ -14,11 +14,11 @@ function ChefRecipes() {
             <div className="hero min-h-[calc(70vh)] bg-cover" style={{ backgroundImage: `url(${findData.chefPicture})` }}>
                 <div className="hero-overlay bg-opacity-70" />
                 <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="hero-content flex-col lg:flex-row-reverse text-white">
-                    <img src={findData.chefPicture} className="max-w-sm rounded-lg shadow-2xl" alt={findData.chefName} />
+                    <img src={findData.chefPicture} className="md:max-w-sm max-w-xs rounded-lg shadow-2xl" alt={findData.chefName} />
                     <div>
-                        <h1 className="text-5xl font-bold hover-stroke">{findData.chefName}</h1>
-                        <p className="py-6 tracking-wider text-xl font-bold">{findData.description}</p>
-                        <div className="flex justify-evenly items-center text-2xl font-bold">
+                        <h1 className="md:text-5xl text-3xl text-center md:text-start  font-bold hover-stroke">{findData.chefName}</h1>
+                        <p className="py-6 md:tracking-wider tracking-tight md:text-xl font-bold">{findData.description}</p>
+                        <div className="flex flex-col md:flex-row justify-evenly items-center text-2xl font-bold">
                             <p className="text-amber-500  mb-2">
                                 Years of experience: <span className="text-white">{findData.yearsOfExperience}</span>{' '}
                             </p>
