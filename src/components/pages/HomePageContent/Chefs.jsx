@@ -11,7 +11,7 @@ function Chefs() {
     // get Chefs Data
     const getChefData = async () => {
         try {
-            const { data } = await axios.get('http://localhost:8080/chefs-data');
+            const { data } = await axios.get('https://foodie-adventurer-server.vercel.app/chefs-data');
             if (data.success) {
                 setChefData(data.chefsData.chefs);
             }
