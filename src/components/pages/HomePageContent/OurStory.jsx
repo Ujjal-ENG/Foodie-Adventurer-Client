@@ -43,8 +43,8 @@ function OurStory() {
                 </div>
 
                 <div className="order-1 hidden md:block md:order-2" data-aos="fade-right" data-aos-duration="1000">
-                    <h2 className="text-2xl font-bold mb-4">From humble beginnings...</h2>
-                    <p className="mb-4">
+                    <h2 className="text-4xl font-bold mb-4">From humble beginnings...</h2>
+                    <p className="mb-4 text-2xl font-bold tracking-wide">
                         At Foodie Adventure, we take pride in our humble beginnings. What started as a small family-owned restaurant has now grown into a popular destination for food enthusiasts
                         around the world. Our journey has been one of hard work, determination, and a passion for creating delicious and memorable dining experiences. From our carefully crafted menus
                         to our warm and welcoming atmosphere, we strive to provide our customers with the best possible dining experience. We are committed to using only the freshest and highest
@@ -64,8 +64,8 @@ function OurStory() {
                     </p>
                 </div>
                 <div className="order-1 hidden md:block md:order-1" data-aos="fade-right" data-aos-duration="1000">
-                    <h2 className="text-2xl font-bold mb-4">Our Passion for Food</h2>
-                    <p className="mb-4">
+                    <h2 className="text-4xl font-bold mb-4">Our Passion for Food</h2>
+                    <p className="mb-4 text-2xl tracking-wide font-bold">
                         At Foodie Adventure, our passion for food is at the heart of everything we do. We believe that food is not just fuel, but an experience to be savored and enjoyed. Our chefs are
                         passionate about using fresh, locally-sourced ingredients to create dishes that are not only delicious, but also healthy and nourishing. Whether you're a meat lover or a
                         vegetarian, we have something on our menu that will tantalize your taste buds. We are committed to providing our customers with a dining experience that is both memorable and

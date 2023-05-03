@@ -77,6 +77,7 @@ function AuthProvider({ children }) {
             navigate('/');
         } catch (error) {
             setIsLoading(false);
+            console.log(error);
             toast.error('Error ocurred while user try to SignIn with Google!!');
         }
     };
