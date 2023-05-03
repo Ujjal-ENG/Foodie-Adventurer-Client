@@ -28,7 +28,7 @@ function CardSlider({ data }) {
                     spaceBetween={30}
                     loop
                     autoplay={{
-                        delay: 4000,
+                        delay: 3000,
                         disableOnInteraction: false
                     }}>
                     {data.map((item) => (
