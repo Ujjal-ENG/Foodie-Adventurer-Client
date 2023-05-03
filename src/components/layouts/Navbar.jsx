@@ -54,7 +54,7 @@ function Navbar() {
                     Home
                 </NavLink>
                 <NavLink to="/blogs" className={({ isActive }) => (isActive ? 'active' : 'default')}>
-                    Blog
+                    Blogs
                 </NavLink>
                 <NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : 'default')}>
                     About Us
@@ -100,7 +100,7 @@ function Navbar() {
                         Home
                     </NavLink>
                     <NavLink to="/blogs" className={({ isActive }) => (isActive ? 'active' : 'default')} onClick={() => setIsMenuOpen(false)}>
-                        Blog
+                        Blogs
                     </NavLink>
                     {userInfo && (
                         <NavLink to="/favorites-foods" className={({ isActive }) => (isActive ? 'active' : 'default')}>
