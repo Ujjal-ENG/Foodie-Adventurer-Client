@@ -8,6 +8,8 @@
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
+import ReactStars from 'react-rating-stars-component';
 
 function ChefRecpe({ data }) {
     const [isFavorite, setIsFavorite] = useState(false);
@@ -27,8 +29,9 @@ function ChefRecpe({ data }) {
                             <p className="text-gray-700 text-base mb-2 text-center">{data.cookingMethod}</p>
                         </div>
                         <div className="grid grid-cols-1 justify-items-center md:justify-items-start md:grid-cols-3 gap-5">
-                            <div className="flex justify-start items-end">
-                                <h3 className="text-lg font-bold mb-2">Activities</h3>
+                            <div className="flex justify-start items-end gap-2">
+                                <h3 className="text-lg font-bold mb-2">Rating:</h3>
+                                <ReactStars value={data.rating} size={30} edit={false} isHalf emptyIcon={<BsStar />} halfIcon={<BsStarHalf />} fullIcon={<BsStarFill />} activeColor="#ffd700" />,
                             </div>
                             <div>
                                 <h3 className="text-lg font-bold mb-2">Ingredients</h3>
