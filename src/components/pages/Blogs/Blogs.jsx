@@ -64,7 +64,10 @@ function Blogs() {
                 <h1 className="hover-stroke text-3xl md:text-5xl font-bold" data-text="Blogs">
                     Blogs
                 </h1>
-                <button className="btn btn-sm md:btn-wide btn-primary" type="button" onClick={downloadPDF}>
+                <button className="btn hidden  md:block btn-wide btn-primary" type="button" onClick={downloadPDF}>
+                    Download as PDF
+                </button>
+                <button className="btn md:hidden block btn-sm btn-primary" type="button" onClick={downloadPDF}>
                     Download as PDF
                 </button>
             </div>
