@@ -86,7 +86,7 @@ function Navbar() {
                             </div>
                         </label>
                     )}
-                    {userInfo && <ProfileModal photo={userInfo.photoURL} name={userInfo.displayName} email={userInfo.email} />}
+
                     <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : 'default')} onClick={() => setIsMenuOpen(false)}>
                         Home
                     </NavLink>
@@ -117,6 +117,7 @@ function Navbar() {
                         </button>
                     )}
                 </ul>
+                {userInfo && <ProfileModal photo={userInfo.photoURL} name={userInfo.displayName} email={userInfo.email} />}
             </div>
         </nav>
     );
