@@ -7,7 +7,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { ImMenu } from 'react-icons/im';
 import { MdOutlineRestaurantMenu } from 'react-icons/md';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigation } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import ProfileModal from '../pages/ProfileModal';
 
@@ -32,6 +32,15 @@ function Navbar() {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, [isScrolled]);
+
+    const navigation = useNavigation();
+    if (navigation.state === 'loading') {
+        return (
+            <div className="h-screen flex justify-center items-center">
+                <progress className="progress w-56" />
+            </div>
+        );
+    }
 
     return (
         <nav className={`z-50 relative flex justify-between items-center duration-200 transition-all ${isScrolled ? 'sticky top-0 bg-white shadow-md px-6 py-2 ease-in' : 'my-container ease-out'}`}>
