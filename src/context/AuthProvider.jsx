@@ -90,6 +90,14 @@ function AuthProvider({ children }) {
             toast.error('Email is already Exists!!');
         }
     };
+
+    const updateUserProfile = async (name, photo) => {
+        await updateProfile(userInfo, {
+            displayName: name,
+            photoURL: photo
+        });
+        toast.success('User name and picture is Updated Successfully!!!');
+    };
     useEffect(() => {
         const unSubscriber = onAuthStateChanged(auth, (user) => {
             setUserInfo(user);
@@ -113,7 +121,8 @@ function AuthProvider({ children }) {
         signInUser,
         logOutUser,
         singInGoogle,
-        signInGitHub
+        signInGitHub,
+        updateUserProfile
     };
 
     return <AuthContext.Provider value={auths}>{children}</AuthContext.Provider>;
