@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable no-plusplus */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable operator-linebreak */
 /* eslint-disable jsx-a11y/control-has-associated-label */
@@ -33,7 +35,13 @@ function FavouriteFoods() {
         );
     }
 
-    console.log(getLocalStorageFood);
+    const handleDeleteFood = (id, name) => {
+        // eslint-disable-next-line no-unused-vars
+        const deleteFood = getLocalStorageFood.filter((el) => el.id !== id || el.recipeName !== name);
+        localStorage.setItem('favoriteFoods', JSON.stringify(deleteFood));
+        getItemFromLocalStorage();
+    };
+
     return (
         <div>
             <div className="overflow-x-auto max-w-7xl mx-auto">
@@ -67,7 +75,7 @@ function FavouriteFoods() {
                                         <img className="mask mask-circle md:w-48 w-20 " src={food.chefPicture} alt={food.chefName} />
                                     </td>
                                     <td>
-                                        <AiFillDelete className="text-5xl text-red-500 cursor-pointer" />
+                                        <AiFillDelete className="text-5xl text-red-500 cursor-pointer" onClick={() => handleDeleteFood(food.id, food.recipeName)} />
                                     </td>
                                 </tr>
                             ))}

@@ -39,7 +39,7 @@ function ChefRecipes() {
                     Top {findData.recipes.length} recipes of {findData.chefName}
                 </h1>
                 {findData.recipes.map((el, idx) => (
-                    <ChefRecpe key={idx} data={el} chefName={findData.chefName} chefPicture={findData.chefPicture} />
+                    <ChefRecpe key={idx} data={el} chefName={findData.chefName} chefPicture={findData.chefPicture} id={findData.id} />
                 ))}
             </div>
         </div>

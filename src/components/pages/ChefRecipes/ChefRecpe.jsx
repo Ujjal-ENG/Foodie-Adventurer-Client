@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable max-len */
 /* eslint-disable no-shadow */
 /* eslint-disable comma-dangle */
@@ -14,10 +15,10 @@ import toast from 'react-hot-toast';
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
 import ReactStars from 'react-rating-stars-component';
 
-function ChefRecpe({ data, chefName, chefPicture }) {
+function ChefRecpe({ data, chefName, chefPicture, id }) {
     const [isFavorite, setIsFavorite] = useState(false);
 
-    const handleAddToFavorites = (foodData, chefName, chefPicture) => {
+    const handleAddToFavorites = (foodData, chefName, chefPicture, id) => {
         setIsFavorite((prev) => !prev);
         toast.success('Your Favorite Food is Added in your Favorite List!!');
 
@@ -34,6 +35,7 @@ function ChefRecpe({ data, chefName, chefPicture }) {
                     ...existingFavorites,
                     {
                         ...foodData,
+                        id,
                         chefName,
                         chefPicture
                     }
@@ -42,7 +44,17 @@ function ChefRecpe({ data, chefName, chefPicture }) {
         } else {
             // If there are no favorite foods in localStorage, create a new list
             // containing the selected food and save it to localStorage
-            localStorage.setItem('favoriteFoods', JSON.stringify([{ ...foodData, chefName, chefPicture }]));
+            localStorage.setItem(
+                'favoriteFoods',
+                JSON.stringify([
+                    {
+                        ...foodData,
+                        id,
+                        chefName,
+                        chefPicture
+                    }
+                ])
+            );
         }
     };
 
@@ -75,7 +87,7 @@ function ChefRecpe({ data, chefName, chefPicture }) {
                                     className={`flex items-center justify-center gap-2 px-4 py-2 rounded-full text-white ${
                                         isFavorite ? 'bg-red-500' : 'bg-gray-500'
                                     } hover:bg-red-600 transition-colors`}
-                                    onClick={() => handleAddToFavorites(data, chefName, chefPicture)}
+                                    onClick={() => handleAddToFavorites(data, chefName, chefPicture, id)}
                                     disabled={isFavorite}>
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                         <path
