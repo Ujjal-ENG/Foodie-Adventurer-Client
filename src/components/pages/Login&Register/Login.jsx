@@ -25,6 +25,15 @@ function Login() {
         signInUser(email, password);
         navigate(from);
     };
+
+    const handleGoogleSignIn = () => {
+        singInGoogle();
+        navigate(from);
+    };
+    const handleGitHubSignIn = () => {
+        signInGitHub();
+        navigate(from);
+    };
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 my-container ">
             <div className=" shadow-2xl rounded-md flex flex-col justify-center py-12 sm:px-6 lg:px-8 order-2 md:order-1">
@@ -115,7 +124,7 @@ function Login() {
                             <div className="mt-6 grid grid-cols-2 gap-3">
                                 <div>
                                     <button
-                                        onClick={() => singInGoogle()}
+                                        onClick={handleGoogleSignIn}
                                         type="submit"
                                         className="group relative w-full flex justify-center py-2 px-4 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
                                         <span className="sr-only">Sign in with Google</span>
@@ -125,7 +134,7 @@ function Login() {
 
                                 <div>
                                     <button
-                                        onClick={() => signInGitHub()}
+                                        onClick={handleGitHubSignIn}
                                         type="submit"
                                         className="group relative w-full flex justify-center py-2 px-4 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
                                         <span className="sr-only">Sign in with GitHub</span>

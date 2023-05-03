@@ -74,10 +74,8 @@ function AuthProvider({ children }) {
             await signInWithPopup(auth, provider);
             toast.success('Successfully Logged In using Google!!');
             setIsLoading(false);
-            navigate('/');
         } catch (error) {
             setIsLoading(false);
-            console.log(error);
             toast.error('Error ocurred while user try to SignIn with Google!!');
         }
     };
@@ -87,7 +85,6 @@ function AuthProvider({ children }) {
             await signInWithPopup(auth, gitHubProvider);
             toast.success('Successfully Logged In using GitHub!!');
             setIsLoading(false);
-            navigate('/');
         } catch (error) {
             setIsLoading(false);
             toast.error('Email is already Exists!!');
