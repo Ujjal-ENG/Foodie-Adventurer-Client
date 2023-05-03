@@ -26,8 +26,8 @@ function Login() {
         navigate(from);
     };
     return (
-        <div className="grid grid-cols-2 my-container ">
-            <div className=" shadow-2xl rounded-md flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 my-container ">
+            <div className=" shadow-2xl rounded-md flex flex-col justify-center py-12 sm:px-6 lg:px-8 order-2 md:order-1">
                 <div className="sm:mx-auto sm:w-full sm:max-w-md">
                     <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
                 </div>
@@ -139,7 +139,7 @@ function Login() {
             </div>
 
             <motion.div className="flex flex-col items-center lg:items-start mb-10 lg:mb-0" initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }}>
-                <iframe src="https://embed.lottiefiles.com/animation/67378" className="w-full min-h-screen" />
+                <iframe src="https://embed.lottiefiles.com/animation/67378" className="w-full h-[200px] md:min-h-screen" />
             </motion.div>
         </div>
     );
