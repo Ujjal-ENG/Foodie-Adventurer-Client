@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/jsx-indent */
@@ -38,7 +39,7 @@ function ChefRecipes() {
                     Top {findData.recipes.length} recipes of {findData.chefName}
                 </h1>
                 {findData.recipes.map((el, idx) => (
-                    <ChefRecpe key={idx} data={el} />
+                    <ChefRecpe key={idx} data={el} chefName={findData.chefName} chefPicture={findData.chefPicture} />
                 ))}
             </div>
         </div>

@@ -1,3 +1,5 @@
+/* eslint-disable no-shadow */
+/* eslint-disable comma-dangle */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/jsx-closing-bracket-location */
@@ -11,13 +13,49 @@ import toast from 'react-hot-toast';
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
 import ReactStars from 'react-rating-stars-component';
 
-function ChefRecpe({ data }) {
+function ChefRecpe({ data, chefName, chefPicture }) {
     const [isFavorite, setIsFavorite] = useState(false);
+    const [favoriteFoods, setFavoriteFoods] = useState([]);
 
-    const toggleFavorite = () => {
+    const handleAddToFavorites = (foodData, chefName, chefPicture) => {
         setIsFavorite((prev) => !prev);
         toast.success('Your Favorite Food is Added in your Favorite List!!');
+
+        // Retrieve the list of favorite foods from localStorage
+        const storedFavorites = localStorage.getItem('favoriteFoods');
+
+        if (storedFavorites) {
+            // If there are already favorite foods in localStorage, parse the JSON
+            // and add the new food to the existing list
+            const existingFavorites = JSON.parse(storedFavorites);
+            localStorage.setItem(
+                'favoriteFoods',
+                JSON.stringify([
+                    ...existingFavorites,
+                    {
+                        ...foodData,
+                        chefName,
+                        chefPicture
+                    }
+                ])
+            );
+        } else {
+            // If there are no favorite foods in localStorage, create a new list
+            // containing the selected food and save it to localStorage
+            localStorage.setItem('favoriteFoods', JSON.stringify([{ ...foodData, chefName, chefPicture }]));
+        }
+
+        // Update the state with the updated list of favorite foods
+        setFavoriteFoods((prev) => [
+            ...prev,
+            {
+                ...foodData,
+                chefName,
+                chefPicture
+            }
+        ]);
     };
+
     return (
         <motion.div className="flex flex-col  items-center lg:items-start mb-10 lg:mb-0" initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
             <div className="shadow-xl px-5 my-4 duration-200 transition-all ease-in-out hover:shadow-2xl">
@@ -47,7 +85,7 @@ function ChefRecpe({ data }) {
                                     className={`flex items-center justify-center gap-2 px-4 py-2 rounded-full text-white ${
                                         isFavorite ? 'bg-red-500' : 'bg-gray-500'
                                     } hover:bg-red-600 transition-colors`}
-                                    onClick={toggleFavorite}
+                                    onClick={() => handleAddToFavorites(data, chefName, chefPicture)}
                                     disabled={isFavorite}>
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                         <path
@@ -60,7 +98,7 @@ function ChefRecpe({ data }) {
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    <span>{isFavorite ? 'Favorite Fodd is Added!!' : 'Add to Favorites'}</span>
+                                    <span>{isFavorite ? 'Favorite Food is Added!!' : 'Add to Favorites'}</span>
                                 </button>
                             </div>
                         </div>
