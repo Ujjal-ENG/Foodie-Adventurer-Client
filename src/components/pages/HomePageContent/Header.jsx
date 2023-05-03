@@ -9,6 +9,7 @@ import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import bannerImg from '../../../assets/banner.jpg';
 import Left from './Left';
+import Right from './Right';
 
 function Header() {
     const [sliderData, setSliderData] = useState([]);
@@ -45,13 +46,15 @@ function Header() {
                 <div className="hero min-h-screen duration-200 transition-all ease-in-out" style={{ backgroundImage: `url(${backgroudImage.img})` }}>
                     <div className="hero-overlay bg-opacity-30" />
                     <div className="relative z-10">
-                        <div className="grid grid-flow-col grid-cols-1 md:grid-flow-row md:grid-cols-12  justify-items-center px-12 items-center h-full mt-12">
+                        <div className="grid grid-cols-12  justify-items-center px-12 items-center h-full mt-12">
                             {/* On small devices display the components in a column */}
 
                             <div className="col-span-4">
                                 <Left data={backgroudImage} id={ids} />
                             </div>
-                            <div className="col-span-8">{/* <Right data={sliderData} getData={getData} /> */}</div>
+                            <div className="col-span-8">
+                                <Right data={sliderData} getData={getData} />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -63,7 +66,9 @@ function Header() {
                             <div className="md:col-span-4">
                                 <Left data={backgroudImage} id={ids} />
                             </div>
-                            <div className="col-span-8 ml-24 duration-200 transition-all ">{/* <Right data={sliderData} getData={getData} /> */}</div>
+                            <div className="col-span-8 ml-24 duration-200 transition-all ">
+                                <Right data={sliderData} getData={getData} />
+                            </div>
                         </div>
                     </div>
                 </div>

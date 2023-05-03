@@ -19,33 +19,48 @@ function Right({ data, getData }) {
     }
 
     return (
-        <Swiper
-            className="max-w-2xl md:max-w-3xl lg:max-w-4xl"
-            onSlideChange={handleSlideChange}
-            modules={[EffectCoverflow]}
-            effect="coverflow"
-            grabCursor
-            centeredSlides
-            slidesPerView={6}
-            coverflowEffect={{
-                rotate: 0,
-                stretch: 20,
-                depth: 90,
-                modifier: 1,
-                slideShadows: true
-            }}>
-            <SwiperSlide />
-            {data.map((el) => (
-                <SwiperSlide key={el.id}>
-                    <div className={`w-96 rounded-lg h-[540px]  shadow-xl image-full relative  ${indexes === el.id ? 'border-2 border-yellow-400' : 'border-0'}`}>
+        <div className="mx-auto">
+            <div className="hidden md:block">
+                <Swiper
+                    className="max-w-4xl"
+                    onSlideChange={handleSlideChange}
+                    modules={[EffectCoverflow]}
+                    effect="coverflow"
+                    grabCursor
+                    centeredSlides
+                    slidesPerView={6}
+                    coverflowEffect={{
+                        rotate: 0,
+                        stretch: 20,
+                        depth: 90,
+                        modifier: 1,
+                        slideShadows: true
+                    }}>
+                    <SwiperSlide />
+                    {data.map((el) => (
+                        <SwiperSlide key={el.id}>
+                            <div className={`w-96 rounded-lg h-[540px]  shadow-xl image-full relative  ${indexes === el.id ? 'border-2 border-yellow-400' : 'border-0'}`}>
+                                <img src={el.img} className="w-full h-full rounded-lg object-cover" alt="slider-img" />
+                                <h1 className="hover-stroke absolute -top-20 right-0 text-4xl w-full font-bold" data-text={el.title}>
+                                    {el.title}
+                                </h1>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
+
+            <div className="md:hidden  flex justify-center items-center flex-col space-y-4">
+                {data.map((el) => (
+                    <div className={`w-full rounded-lg h-[240px]  shadow-xl image-full relative  ${indexes === el.id ? 'border-2 border-yellow-400' : 'border-0'}`}>
                         <img src={el.img} className="w-full h-full rounded-lg object-cover" alt="slider-img" />
-                        <h1 className="hover-stroke absolute -top-20 right-0 text-4xl w-full font-bold" data-text={el.title}>
+                        <h1 className="hover-stroke absolute -top-20 right-0 text-2xl w-full font-bold" data-text={el.title}>
                             {el.title}
                         </h1>
                     </div>
-                </SwiperSlide>
-            ))}
-        </Swiper>
+                ))}
+            </div>
+        </div>
     );
 }
 
