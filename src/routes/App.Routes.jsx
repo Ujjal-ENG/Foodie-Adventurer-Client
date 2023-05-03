@@ -8,6 +8,7 @@ import AboutPage from '../components/pages/AboutPage';
 import Blogs from '../components/pages/Blogs/Blogs';
 import ChefRecipes from '../components/pages/ChefRecipes/ChefRecipes';
 import ErrorPage from '../components/pages/ErrorPage';
+import FavouriteFoods from '../components/pages/FavouriteFoods';
 import Home from '../components/pages/Home';
 import Login from '../components/pages/Login&Register/Login';
 import Register from '../components/pages/Login&Register/Register';
@@ -48,6 +49,10 @@ export const router = createBrowserRouter([
                 path: '/blogs',
                 element: <Blogs />,
                 loader: async () => fetch('http://localhost:8080/blogs-data')
+            },
+            {
+                path: '/favorites-foods',
+                element: <FavouriteFoods />
             }
         ]
     }

@@ -47,6 +47,11 @@ function Navbar() {
                 <NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : 'default')}>
                     About Us
                 </NavLink>
+                {userInfo && (
+                    <NavLink to="/favorites-foods" className={({ isActive }) => (isActive ? 'active' : 'default')}>
+                        My Favorites Foods
+                    </NavLink>
+                )}
                 {!userInfo ? (
                     <NavLink to="/login" className={({ isActive }) => (isActive ? 'active' : 'default')}>
                         Login
@@ -83,6 +88,11 @@ function Navbar() {
                     <NavLink to="/blogs" className={({ isActive }) => (isActive ? 'active' : 'default')} onClick={() => setIsMenuOpen(false)}>
                         Blog
                     </NavLink>
+                    {userInfo && (
+                        <NavLink to="/favorites-foods" className={({ isActive }) => (isActive ? 'active' : 'default')}>
+                            My Favorites Foods
+                        </NavLink>
+                    )}
                     <NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : 'default')} onClick={() => setIsMenuOpen(false)}>
                         About Us
                     </NavLink>
