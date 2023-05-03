@@ -20,7 +20,6 @@ function FavouriteFoods() {
             setIsLoading(false);
         } else {
             setIsLoading(false);
-            toast.error('You do not have and Favorite Food!!!');
         }
     };
     useEffect(() => {
@@ -40,6 +39,7 @@ function FavouriteFoods() {
         const deleteFood = getLocalStorageFood.filter((el) => el.id !== id || el.recipeName !== name);
         localStorage.setItem('favoriteFoods', JSON.stringify(deleteFood));
         getItemFromLocalStorage();
+        toast.success('You  Favorite Food item is Deleted!!!');
     };
 
     return (
