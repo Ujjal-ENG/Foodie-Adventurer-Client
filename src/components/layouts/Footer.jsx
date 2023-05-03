@@ -21,9 +21,23 @@ function Footer() {
                     <a className="link link-hover">Careers</a>
                     <a className="link link-hover">Press Kit</a>
                 </div>
-                <div>
-                    <span className="footer-title">Cuisines</span>
-                    <a className="link link-hover">Indian</a>
+                <div className="flex items-center justify-center flex-col">
+                    <span className="footer-title">Most Popular Cuisines States in India</span>
+                    <a href="https://www.cnn.com/travel/article/indian-food-dishes/index.html" target="_blank" className="link link-hover" rel="noreferrer">
+                        Goa: Fish Recheado, Prawn Balchao, Pork Vindaloo, Bebinca
+                    </a>
+                    <a href="https://www.cnn.com/travel/article/indian-food-dishes/index.html" target="_blank" className="link link-hover" rel="noreferrer">
+                        West Bengal: Fish curry, Luchi, Kosha Mangsho, Mishti Doi
+                    </a>
+                    <a href="https://www.cnn.com/travel/article/indian-food-dishes/index.html" target="_blank" className="link link-hover" rel="noreferrer">
+                        Gujarat: Dhokla, Khandvi, Thepla, Undhiyu
+                    </a>
+                    <a href="https://www.cnn.com/travel/article/indian-food-dishes/index.html" target="_blank" className="link link-hover" rel="noreferrer">
+                        Maharashtra: Vada Pav, Pav Bhaji, Misal Pav, Puran Poli
+                    </a>
+                    <a href="https://letstripdesi.com/blog/national-food-of-india/" target="_blank" className="link link-hover" rel="noreferrer">
+                        Sikkim: Momos, Thukpa, Gundruk, Phagshapa and Seal Roti
+                    </a>
                 </div>
                 <div>
                     <span className="footer-title">Legal</span>
@@ -35,7 +49,7 @@ function Footer() {
                     <span className="footer-title">Newsletter</span>
                     <div className="form-control w-80">
                         <label className="label">
-                            <span className="label-text">Subscribe to our newsletter</span>
+                            <span className="label-text text-red-500 font-bold">Get new food notifications by subscribing to our Foodie Adventurer</span>
                         </label>
                         <div className="relative">
                             <input type="text" placeholder="username@site.com" className="input input-bordered w-full pr-16" />
