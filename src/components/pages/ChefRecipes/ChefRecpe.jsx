@@ -62,7 +62,7 @@ function ChefRecpe({ data, chefName, chefPicture, id }) {
         <motion.div className="flex flex-col  items-center lg:items-start mb-10 lg:mb-0" initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
             <div className="shadow-xl px-5 my-4 duration-200 transition-all ease-in-out hover:shadow-2xl">
                 <div className="flex flex-col md:flex-row justify-between rounded-md overflow-hidden  px-3">
-                    <img className="w-full max-w-xs rounded-xl h-64 object-cover my-auto" src={data.img} alt={data.recipeName} />
+                    <img className="w-full max-w-xs rounded-xl h-80 object-cover my-auto" src={data.img} alt={data.recipeName} />
                     <div className="px-4 py-4">
                         <div>
                             <h2 className="font-bold mb-2 text-center text-2xl">{data.recipeName}</h2>

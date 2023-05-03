@@ -19,7 +19,7 @@ function Header() {
     // get data
     const getSliderData = async () => {
         try {
-            const { data } = await axios.get('https://foodie-adventurer-server.vercel.app/slider-data');
+            const { data } = await axios.get('https://foodie-adventurer-server-ujjal-eng.vercel.app/slider-data');
             if (data.success) {
                 setSliderData(data.headerData.data);
             }

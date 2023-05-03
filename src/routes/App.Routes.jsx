@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
                         <ChefRecipes />,
                     </PrivateRoute>
                 ),
-                loader: async ({ params }) => fetch(`https://foodie-adventurer-server.vercel.app/recipe-data/${params.id}`)
+                loader: async ({ params }) => fetch(`https://foodie-adventurer-server-ujjal-eng.vercel.app/recipe-data/${params.id}`)
             },
             {
                 path: '/about',
@@ -49,7 +49,7 @@ export const router = createBrowserRouter([
             {
                 path: '/blogs',
                 element: <Blogs />,
-                loader: async () => fetch('https://foodie-adventurer-server.vercel.app/blogs-data')
+                loader: async () => fetch('https://foodie-adventurer-server-ujjal-eng.vercel.app/blogs-data')
             },
             {
                 path: '/favorites-foods',
