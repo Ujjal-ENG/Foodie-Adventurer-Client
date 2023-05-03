@@ -61,15 +61,15 @@ function Blogs() {
     return (
         <div className="my-container">
             <div className="flex justify-between items-center">
-                <h1 className="hover-stroke text-5xl font-bold" data-text="Blogs">
+                <h1 className="hover-stroke text-3xl md:text-5xl font-bold" data-text="Blogs">
                     Blogs
                 </h1>
-                <button className="btn btn-wide btn-primary" type="button" onClick={downloadPDF}>
+                <button className="btn btn-sm md:btn-wide btn-primary" type="button" onClick={downloadPDF}>
                     Download as PDF
                 </button>
             </div>
 
-            <div className="grid grid-cols-2 gap-8 mt-5">{blogsData && blogsData.map((blog) => <BlogCard key={blog.id} data={blog} />)}</div>
+            <div className="grid grid-cols-1  md:grid-cols-2 gap-8 mt-5">{blogsData && blogsData.map((blog) => <BlogCard key={blog.id} data={blog} />)}</div>
         </div>
     );
 }
