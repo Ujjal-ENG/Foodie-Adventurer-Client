@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-indent-props */
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable jsx-a11y/iframe-has-title */
@@ -7,6 +9,7 @@ import { ImMenu } from 'react-icons/im';
 import { MdOutlineRestaurantMenu } from 'react-icons/md';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import ProfileModal from '../pages/ProfileModal';
 
 function Navbar() {
     const { userInfo, logOutUser } = useContext(AuthContext);
@@ -62,12 +65,13 @@ function Navbar() {
                     </button>
                 )}
                 {userInfo && (
-                    <div className={`avatar ${userInfo && 'tooltip tooltip-primary tooltip-left'} `} data-tip={userInfo.displayName}>
+                    <label htmlFor="my-modal-3" className={`avatar ${userInfo && 'tooltip tooltip-primary tooltip-left'} `} data-tip={userInfo.displayName}>
                         <div className="w-12">
-                            <img src={userInfo.photoURL} alt="avatar" className="rounded-full" />
+                            <img src={userInfo.photoURL} alt="avatar" className="rounded-full cursor-pointer" />
                         </div>
-                    </div>
+                    </label>
                 )}
+                {userInfo && <ProfileModal photo={userInfo.photoURL} name={userInfo.displayName} email={userInfo.email} />}
             </div>
 
             {/* for mobile menu */}
@@ -76,12 +80,13 @@ function Navbar() {
 
                 <ul className={`menu py-5 absolute left-0 duration-200 ease-in-out transition-all ${isMenuOpen ? 'top-20' : '-top-96'} bg-base-100 w-full text-center space-y-4 rounded-lg lg:hidden`}>
                     {userInfo && (
-                        <div className={`avatar mx-auto py-2 ${userInfo && 'tooltip tooltip-primary tooltip-left'} `} data-tip={userInfo.displayName}>
+                        <label htmlFor="my-modal-3" className={`avatar mx-auto py-2 ${userInfo && 'tooltip tooltip-primary tooltip-left'} `} data-tip={userInfo.displayName}>
                             <div className="w-12">
-                                <img src={userInfo.photoURL} alt="avatar" className="rounded-full" />
+                                <img src={userInfo.photoURL} alt="avatar" className="rounded-full cursor-pointer" />
                             </div>
-                        </div>
+                        </label>
                     )}
+                    {userInfo && <ProfileModal photo={userInfo.photoURL} name={userInfo.displayName} email={userInfo.email} />}
                     <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : 'default')} onClick={() => setIsMenuOpen(false)}>
                         Home
                     </NavLink>
