@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-shadow */
 /* eslint-disable comma-dangle */
 /* eslint-disable react/no-array-index-key */
@@ -15,7 +16,6 @@ import ReactStars from 'react-rating-stars-component';
 
 function ChefRecpe({ data, chefName, chefPicture }) {
     const [isFavorite, setIsFavorite] = useState(false);
-    const [favoriteFoods, setFavoriteFoods] = useState([]);
 
     const handleAddToFavorites = (foodData, chefName, chefPicture) => {
         setIsFavorite((prev) => !prev);
@@ -44,16 +44,6 @@ function ChefRecpe({ data, chefName, chefPicture }) {
             // containing the selected food and save it to localStorage
             localStorage.setItem('favoriteFoods', JSON.stringify([{ ...foodData, chefName, chefPicture }]));
         }
-
-        // Update the state with the updated list of favorite foods
-        setFavoriteFoods((prev) => [
-            ...prev,
-            {
-                ...foodData,
-                chefName,
-                chefPicture
-            }
-        ]);
     };
 
     return (
