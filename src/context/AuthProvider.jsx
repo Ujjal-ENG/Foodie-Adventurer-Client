@@ -9,6 +9,7 @@ import {
     createUserWithEmailAndPassword,
     getAuth,
     onAuthStateChanged,
+    sendPasswordResetEmail,
     signInWithEmailAndPassword,
     signInWithPopup,
     signOut,
@@ -60,6 +61,7 @@ function AuthProvider({ children }) {
         } catch (error) {
             setIsLoading(false);
             toast.error('Invalid Email or Password!!!');
+            navigate('/login');
         }
     };
 
@@ -98,6 +100,12 @@ function AuthProvider({ children }) {
         });
         toast.success('User name and picture is Updated Successfully!!!');
     };
+
+    const resetPassword = async (email) => {
+        await sendPasswordResetEmail(auth, email);
+        toast.success('Please Check Your Email,also check your spam folder!!!');
+        navigate('/login');
+    };
     useEffect(() => {
         const unSubscriber = onAuthStateChanged(auth, (user) => {
             setUserInfo(user);
@@ -122,7 +130,8 @@ function AuthProvider({ children }) {
         logOutUser,
         singInGoogle,
         signInGitHub,
-        updateUserProfile
+        updateUserProfile,
+        resetPassword
     };
 
     return <AuthContext.Provider value={auths}>{children}</AuthContext.Provider>;

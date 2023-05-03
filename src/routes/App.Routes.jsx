@@ -10,6 +10,7 @@ import ChefRecipes from '../components/pages/ChefRecipes/ChefRecipes';
 import ErrorPage from '../components/pages/ErrorPage';
 import FavouriteFoods from '../components/pages/FavouriteFoods';
 import Home from '../components/pages/Home';
+import ForgotPassword from '../components/pages/Login&Register/ForgotPassword';
 import Login from '../components/pages/Login&Register/Login';
 import Register from '../components/pages/Login&Register/Register';
 import PrivateRoute from './PrivateRoute';
@@ -53,6 +54,10 @@ export const router = createBrowserRouter([
             {
                 path: '/favorites-foods',
                 element: <FavouriteFoods />
+            },
+            {
+                path: '/forgot-password',
+                element: <ForgotPassword />
             }
         ]
     }
