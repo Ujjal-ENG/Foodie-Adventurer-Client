@@ -71,10 +71,10 @@ function Navbar() {
             </div>
 
             {/* for mobile menu */}
-            <div className=" lg:hidden lg:shadow-lg">
+            <div className=" lg:hidden lg:shadow-lg ">
                 {isMenuOpen ? <MdOutlineRestaurantMenu className="text-3xl text-red-500" onClick={handleMenuOpen} /> : <ImMenu className="text-3xl text-violet-700" onClick={handleMenuOpen} />}
 
-                <ul className={`menu absolute left-0 duration-200 ease-in-out transition-all ${isMenuOpen ? 'top-20' : '-top-96'} bg-base-100 w-full text-center space-y-4 rounded-lg lg:hidden`}>
+                <ul className={`menu py-5 absolute left-0 duration-200 ease-in-out transition-all ${isMenuOpen ? 'top-20' : '-top-96'} bg-base-100 w-full text-center space-y-4 rounded-lg lg:hidden`}>
                     {userInfo && (
                         <div className={`avatar mx-auto py-2 ${userInfo && 'tooltip tooltip-primary tooltip-left'} `} data-tip={userInfo.displayName}>
                             <div className="w-12">
