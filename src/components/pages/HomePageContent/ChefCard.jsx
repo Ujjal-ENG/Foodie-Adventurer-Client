@@ -11,7 +11,7 @@
 import React from 'react';
 import LazyLoad from 'react-lazyload';
 import { Link } from 'react-router-dom';
-import SwiperCore, { Autoplay } from 'swiper';
+import SwiperCore, { Autoplay, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 
@@ -27,12 +27,16 @@ function CardSlider({ data }) {
                     slidesPerView={3}
                     spaceBetween={30}
                     loop
+                    pagination={{
+                        clickable: true
+                    }}
                     autoplay={{
                         delay: 3000,
                         disableOnInteraction: false
-                    }}>
+                    }}
+                    modules={[Autoplay, Pagination]}>
                     {data.map((item) => (
-                        <SwiperSlide key={item.id}>
+                        <SwiperSlide key={item.id} className="mb-10">
                             <div className="w-1/2 md:w-full  md:block p-4 duration-200 transition-all ease-in-out hover:-translate-y-4">
                                 <div className="border rounded-lg overflow-hidden shadow-md">
                                     <LazyLoad once>
