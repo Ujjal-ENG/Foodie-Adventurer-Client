@@ -43,10 +43,10 @@ function CardSlider({ data }) {
                                         <img src={item.chefPicture} alt={item.chefName} className="w-full h-56 object-cover" />
                                     </LazyLoad>
                                     <div className="p-4">
-                                        <h2 className="text-lg font-bold mb-2">{item.chefName}</h2>
-                                        <p className="text-gray-600 mb-2">Years of experience: {item.yearsOfExperience}</p>
-                                        <p className="text-gray-600 mb-2">Number of recipes: {item.numberOfRecipes}</p>
-                                        <p className="text-gray-600">Likes: {item.likes}</p>
+                                        <h2 className="text-2xl font-bold mb-2">{item.chefName}</h2>
+                                        <p className="text-gray-600 mb-2 font-bold">Years of experience: {item.yearsOfExperience}</p>
+                                        <p className="text-gray-600 mb-2 font-bold">Number of recipes: {item.numberOfRecipes}</p>
+                                        <p className="text-gray-600 font-bold">Likes: {item.likes}</p>
                                     </div>
                                     <Link to={`chef-recipes/${item.id}`} className="btn btn-primary w-full mt-auto">
                                         View Recipes
@@ -65,7 +65,7 @@ function CardSlider({ data }) {
                                 <img src={item.chefPicture} alt={item.chefName} className="w-full h-56 object-cover" />
                             </LazyLoad>
                             <div className="p-4">
-                                <h2 className="text-lg font-bold mb-2">{item.chefName}</h2>
+                                <h2 className="text-xl font-bold mb-2">{item.chefName}</h2>
                                 <p className="text-gray-600 mb-2">Years of experience: {item.yearsOfExperience}</p>
                                 <p className="text-gray-600 mb-2">Number of recipes: {item.numberOfRecipes}</p>
                                 <p className="text-gray-600">Likes: {item.likes}</p>
