@@ -53,7 +53,7 @@ The chefs featured on the website are all Indian, providing a unique cultural ex
 
 ## Live Site Link
 
-You can visit the Live Site at [https://foodie-adventurer.firebaseapp.com/]
+You can visit the Live Site at [https://foodie-adventurer.web.app/]
 
 ## Author
 
