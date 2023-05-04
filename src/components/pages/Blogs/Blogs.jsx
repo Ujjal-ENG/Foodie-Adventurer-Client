@@ -7,64 +7,42 @@
 /* eslint-disable react/jsx-indent */
 // /* eslint-disable react/jsx-indent */
 
-import { jsPDF } from 'jspdf';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import BlogCard from './BlogCard';
+
+function generatePDF(data) {
+    const doc = new jsPDF();
+
+    const tableColumn = ['ID', 'Author', 'Question', 'Answer'];
+    const tableRows = [];
+
+    data.forEach((blogPost) => {
+        const { id, author, question, answer } = blogPost;
+        const blogPostData = [id, author, question, answer];
+        tableRows.push(blogPostData);
+    });
+
+    doc.autoTable(tableColumn, tableRows, { startY: 20 });
+    doc.save('blog_posts.pdf');
+}
 
 function Blogs() {
     const { blogsData } = useLoaderData();
 
     const downloadPDF = () => {
-        const doc = new jsPDF();
-        const elementHandlers = {
-            // eslint-disable-next-line no-unused-vars
-            '#ignorePDF': function (element, renderer) {
-                return true;
-            }
-        };
-        const styles = `
-          <style>
-            h2 {
-              font-size: 18px;
-              font-weight: bold;
-              margin-bottom: 10px;
-            }
-            p {
-              font-size: 14px;
-              line-height: 1.5;
-              margin-bottom: 20px;
-            }
-          </style>
-        `;
-        const blogs = blogsData.map(
-            (blog) => `
-          <div style={{fontSize: "14px"}}>
-            <h2>${blog.author}</h2>
-            <h2>${blog.question}</h2>
-            <p>${blog.answer}</p>
-          </div>
-        `
-        );
-        const content = styles + blogs.join('');
-
-        doc.html(content, {
-            callback() {
-                doc.save('blogs.pdf');
-            },
-            x: 15,
-            y: 15,
-            width: 390,
-            elementHandlers
-        });
+        generatePDF(blogsData);
     };
+
     return (
         <div className="my-container">
             <div className="flex justify-between items-center">
                 <h1 className="hover-stroke text-3xl md:text-5xl font-bold" data-text="Blogs">
                     Blogs
                 </h1>
-                <button className="btn hidden  md:block btn-wide btn-primary" type="button" onClick={downloadPDF}>
+                <button className="btn hidden md:block btn-wide btn-primary" type="button" onClick={downloadPDF}>
                     Download as PDF
                 </button>
                 <button className="btn md:hidden block btn-sm btn-primary" type="button" onClick={downloadPDF}>
@@ -72,7 +50,7 @@ function Blogs() {
                 </button>
             </div>
 
-            <div className="grid grid-cols-1  md:grid-cols-2 gap-8 mt-5">{blogsData && blogsData.map((blog) => <BlogCard key={blog.id} data={blog} />)}</div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-5">{blogsData && blogsData.map((blog) => <BlogCard key={blog.id} data={blog} />)}</div>
         </div>
     );
 }

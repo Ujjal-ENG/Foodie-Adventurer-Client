@@ -17,6 +17,7 @@
         "firebase": "^9.21.0",
         "framer-motion": "^10.12.6",
         "jspdf": "^2.5.1",
+        "jspdf-autotable": "^3.5.28",
         "leaflet": "^1.9.3",
         "localforage": "^1.10.0",
         "mapbox-gl": "^2.14.1",
