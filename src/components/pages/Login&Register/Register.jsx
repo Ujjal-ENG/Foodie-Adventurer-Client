@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
 
 function Register() {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, loading } = useContext(AuthContext);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -151,9 +151,13 @@ function Register() {
                             </div>
                         </div>
                         <div className="flex items-center justify-center">
-                            <button className="btn btn-primary w-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                                Sign up
-                            </button>
+                            {loading ? (
+                                <span className="loading loading-bars loading-md bg-black text-white" />
+                            ) : (
+                                <button className="btn btn-primary w-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                                    Sign up
+                                </button>
+                            )}
                         </div>
                     </form>
                     <div className="text-gray-500 text-center font-bold text-xl pb-2">

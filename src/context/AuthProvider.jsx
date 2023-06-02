@@ -71,8 +71,8 @@ function AuthProvider({ children }) {
     };
 
     const singInGoogle = async () => {
-        setIsLoading(true);
         try {
+            setIsLoading(true);
             await signInWithPopup(auth, provider);
             toast.success('Successfully Logged In using Google!!');
             setIsLoading(false);
@@ -114,14 +114,6 @@ function AuthProvider({ children }) {
         return () => unSubscriber();
     }, []);
 
-    if (loading) {
-        return (
-            <div className="h-screen flex justify-center items-center">
-                <progress className="progress w-56" />
-            </div>
-        );
-    }
-
     const auths = {
         privateLoad,
         userInfo,
@@ -131,7 +123,8 @@ function AuthProvider({ children }) {
         singInGoogle,
         signInGitHub,
         updateUserProfile,
-        resetPassword
+        resetPassword,
+        loading
     };
 
     return <AuthContext.Provider value={auths}>{children}</AuthContext.Provider>;

@@ -14,7 +14,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
 
 function Login() {
-    const { signInUser, singInGoogle, signInGitHub } = useContext(AuthContext);
+    const { signInUser, singInGoogle, signInGitHub, loading } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     const from = location?.state?.from?.pathname || '/';
@@ -105,11 +105,15 @@ function Login() {
                             </div>
 
                             <div>
-                                <button
-                                    type="submit"
-                                    className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white btn btn-primary">
-                                    Login
-                                </button>
+                                {loading ? (
+                                    <span className="loading loading-bars loading-md" />
+                                ) : (
+                                    <button
+                                        type="submit"
+                                        className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white btn btn-primary">
+                                        Login
+                                    </button>
+                                )}
                             </div>
                         </form>
                         <div className="text-sm pt-3">
