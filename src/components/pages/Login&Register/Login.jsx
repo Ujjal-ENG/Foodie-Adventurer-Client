@@ -105,15 +105,11 @@ function Login() {
                             </div>
 
                             <div>
-                                {loading ? (
-                                    <span className="loading loading-bars loading-md" />
-                                ) : (
-                                    <button
-                                        type="submit"
-                                        className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white btn btn-primary">
-                                        Login
-                                    </button>
-                                )}
+                                <button
+                                    type="submit"
+                                    className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white btn btn-primary">
+                                    Login
+                                </button>
                             </div>
                         </form>
                         <div className="text-sm pt-3">
@@ -138,7 +134,11 @@ function Login() {
                                         type="submit"
                                         className="group relative w-full flex justify-center py-2 px-4 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
                                         <span className="sr-only">Sign in with Google</span>
-                                        <AiFillGoogleCircle className="h-5 w-5 text-red-500 group-hover:text-red-600" aria-hidden="true" />
+                                        {loading ? (
+                                            <span className="loading h-8 w-8 bg-slate-300 loading-bars loading-md " />
+                                        ) : (
+                                            <AiFillGoogleCircle className="h-5 w-5 text-red-500 group-hover:text-red-600" aria-hidden="true" />
+                                        )}
                                     </button>
                                 </div>
 
